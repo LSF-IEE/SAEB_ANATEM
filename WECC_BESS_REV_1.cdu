@@ -16,10 +16,10 @@ DEFPAR #RRPWR 10
 DEFPAR #BRKPT 0.1
 DEFPAR #ZEROX 0.05
 DEFPAR #LVPL1 1.22
-DEFPAR #VOLIM 1.2
+DEFPAR #VTMAX 1.2
 DEFPAR #LVPT1 0.2
 DEFPAR #LVPT0 0.05
-DEFPAR #IOLIM -1.3
+DEFPAR #QOMIN -1.3
 DEFPAR #KHV   0.7
 DEFPAR #TG    0.017
 DEFPAR #TFLTR 0.01
@@ -27,7 +27,7 @@ DEFPAR #IQRMX 99
 DEFPAR #IQRMN -99
 DEFPAR #XE    0
 (
-(=====PARAMETROS DE CONTROLE ELÉTRICO DO CONVERSOR C.C.-C.A. (REEC_C)
+(=====PARAMETROS DE CONTROLE ELÃ‰TRICO DO CONVERSOR C.C.-C.A. (REEC_C)
 DEFPAR #MVAB  6
 DEFPAR #VDIP  -99
 DEFPAR #VUP   99
@@ -81,7 +81,7 @@ DEFPAR #IP4   1.1104
 DEFPAR #BCAP  0.005
 DEFPAR #VREF1 1.0
 (
-(=====PARAMETROS DE CONTROLE ELÉTRICO DA PLANTA (REPC_A)
+(=====PARAMETROS DE CONTROLE ELÃ‰TRICO DA PLANTA (REPC_A)
 (DEFPAR #MVAB  6
 (DEFPAR #TFLTR 0.02
 DEFPAR #KP    1.0
@@ -127,7 +127,7 @@ DEFPAR #KINER 1.0
 DEFPAR #PCFG  0
 (
 (
-(=====MÓDULO REPC_A
+(=====MÃ“DULO REPC_A
 (=MALHA DE CONTROLE P-f
 (nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
    1 IMPORT FLXA          PPLT   #NBRMU  
@@ -220,7 +220,7 @@ DEFPAR #PCFG  0
  126 LEDLAG        QREF5  QREF   1.    #TFT  1.    #TFV
  127 SAIDA         RFFLG0
 (
-(=====MÓDULO REEC_C
+(=====MÃ“DULO REEC_C
 (=CALCULO DO SOC
 (nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
  201 ENTRAD               RESET
@@ -366,7 +366,7 @@ DEFPAR #PCFG  0
  632 SAIDA         IMAX2
  633 SAIDA         IPCMD2
 (
-(=====MÓDULO REGC_A
+(=====MÃ“DULO REGC_A
 (=CALCULO DO IQ
 (nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
  701 LEDLAG        IQCMD  IQ0     -1.   0.    1.    #TG 
@@ -388,19 +388,19 @@ DEFPAR #PCFG  0
                    DIQ1   IQ2
  712 MULTPL        IQ2    IAX1
                    VT     IAX1
- 713*ENTRAD               VOLIM
+ 713*ENTRAD               VTMAX
  714 SOMA          VT     IAX2
-                  -VOLIM  IAX2
+                  -VTMAX  IAX2
  715 GANHO         IAX2   IAX3   #KHV
  716 LIMITA        IAX3   IAX4                            ZERO   INF
  717 COMPAR .GT.   VT     VGFLG
-                   VOLIM  VGFLG
+                   VTMAX  VGFLG
  718 SELET2        ZERO   IAX5
                    IAX4   IAX5
                    VGFLG  IAX5
  719 SOMA          IAX1   IAX6
                   -IAX5   IAX6
- 720 LIMITA        IAX6   IQ                              IOLIM  INF
+ 720 LIMITA        IAX6   IQ                              QOMIN  INF
  721 SAIDA         IQ
 (
 (=CALCULO DO IP
@@ -529,8 +529,8 @@ DEFVAL        PQFLG  #PQFLG
 DEFVAL        IQRMX  #IQRMX
 DEFVAL        IQRMN  #IQRMN
 DEFVAL VAR    QGEN0  QGEN
-DEFVAL        VOLIM  #VOLIM
-DEFVAL        IOLIM  #IOLIM
+DEFVAL        VTMAX  #VTMAX
+DEFVAL        QOMIN  #QOMIN
 DEFVAL        LVPSW  #LVPSW
 DEFVAL        RRPWRP #RRPWR
 DEFVAL VAR    IPCMD  IPCMDi
