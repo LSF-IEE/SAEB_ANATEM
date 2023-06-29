@@ -1,0 +1,226 @@
+(===============================================================================
+( TITULO DO CASO
+(===============================================================================
+TITU
+TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS
+(
+(===============================================================================
+( ASSOCIACAO DE ARQUIVO PARA SAIDA DE RELATORIOS
+(===============================================================================
+ULOG
+4
+SAIDAS\FRACA-SEM_MEDIA_R0.out
+(
+(===============================================================================
+( ASSOCIACAO DE ARQUIVO COM FLUXO DE POTENCIA ( ANAREDE )
+(===============================================================================
+ULOG
+2
+REDE\FRACA-SEM_MEDIA.sav
+(
+(===============================================================================
+( ASSOCIACAO DE ARQUIVO COM DADOS PARA PLOTAGEM
+(===============================================================================
+ULOG
+8
+PLOT\FRACA-SEM_MEDIA_R1.plt
+(
+(===============================================================================
+( ASSOCIACAO DE ARQUIVO DE SAIDA DE MENSAGENS DE EVENTOS
+(===============================================================================
+ULOG
+9
+SAIDAS\FRACA-SEM_MEDIA_R0.log
+(
+(===============================================================================
+( DADOS DE OPCOES DEFAULT DE EXECUCAO
+(===============================================================================
+DOPC IMPR CONT
+(Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E
+IMPR   FILE   CONT   80CO
+999999
+(
+(===============================================================================
+( ALTERACAO DE CONSTANTES DO PROGRAMA
+(===============================================================================
+DCTE
+(Ct) (Val )
+TEPQ    .01  ( tolerancia de convergencia exigida p/ fluxo de potencia )
+TEMD  1.E-6
+TETE  1.E-6
+TABS  1.E-6  ( tolerancia absoluta )
+999999
+(
+(===============================================================================
+( RESTABELECIMENTO DO CASO DE FLUXO DE POTENCIA
+(===============================================================================
+ARQV REST
+1
+(
+(===============================================================================
+( LEITURA DE MODELOS
+(===============================================================================
+ULOG
+3
+MODELOS\WECC_BESS_REV_1.cdu
+ARQM
+(
+(
+ULOG
+3
+MODELOS\SIS14B.blt
+ARQM
+(
+(===============================================================================
+( DADOS DE MAQUINAS E ASSOCIACAO DAS MAQUINAS AOS CONTROLES
+(===============================================================================
+DMAQ
+(....... Equivalente Barra Infinita na Barra 1
+( Nb)   Gr (P) (Q) Und ( Mg ) ( Mt )u( Mv )u( Me )u(Xvd)(Nbc)
+    1   10                101  
+(
+999999
+(
+(===============================================================================
+( DADOS DE LOCAIS DE MEDICAO
+(===============================================================================
+DLOC
+(....... MEDI플O NA BARRA DE CONEX홒 DO BESS (4) E NO CIRCUITO DE CONEXAO (3-4)
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+   1   BARRAC     4
+   2   CIRCAC     4    3 1      
+999999
+(
+(===============================================================================
+( Dados de fonte "shunt" controlada 
+(===============================================================================
+DFNT
+(....... BESS COMO FONTE SHUNT DE CORRENTE IDEAL CONTROLADA
+( Nb)   Gr T (FP%) (FQ%)     ( Mc )u (R ou G) (X ou B)
+    4   10 I  100.  100.          9u
+999999
+(
+(===============================================================================
+( DADOS DE EVENTOS
+(===============================================================================
+( APCB -> aplicacao de curto-circuito em barra CA
+( RMCB -> remocao de curto-circuito em barra CA
+( ABCI -> abertura de circuito CA
+( MDSH -> modificacao de shunt de barra
+( MDLD -> modificacao de modulo da carga mantendo fator de potencia
+( TCDU 004 -> STEP DE SET-POINT DE POTENCIA ATIVA  (PSTEP)
+( TCDU 008 -> STEP DE SET-POINT DE FREQUENCIA (FREF)
+( TCDU 111 -> STEP DE SET-POINT DE TENSAO (VSTEP) 
+( TCDU 116 -> STEP DE SET-POINT DE POTENCIA REATIVA (QSTEP)
+(
+DEVT
+(
+( caso 1
+(Tp) ( Tempo)( El )( Pa)Nc( Ex) ( % ) (ABS ) Gr Und         (Bl)P ( Rc ) ( Xc ) ( Bc ) (Defas)
+(...TESTES DE SETPOINT DE PSTEP
+(TCDU      1.0     9                     0.15                 004
+(TCDU     21.0     9                     0.65                 004
+(TCDU     41.0     9                     1.0                  004
+(TCDU     61.0     9                    -2.95                 004
+(
+(...TESTES DE SETPOINT DE FREF
+(TCDU      1.0     9                    0.001                 008
+(TCDU     21.0     9                    0.002                 008
+(TCDU     41.0     9                   -0.002                 008
+(TCDU     61.0     9                   -0.002                 008
+(
+(...TESTES DE SETPOINT DE VSTEP
+(TCDU      1.0     9                    0.04                  111
+(TCDU     21.0     9                    0.08                  111
+(TCDU     41.0     9                   -0.08                  111
+(TCDU     61.0     9                   -0.12                  111
+(
+(...TESTES DE SETPOINT DE QSTEP
+TCDU      1.0     9                    0.15                 116
+TCDU     21.0     9                    0.65                 116
+TCDU     41.0     9                    1.0                  116
+TCDU     61.0     9                   -2.95                 116
+(...TESTES DE FALTA NA BARRA DE GERA플O PARA VERIFICAR LVRT (V = 85 %, Pmax, 5s)
+(TCDU     0.1      9                     1                    004 
+(APCB     1.0      4                                                      75.0
+(RMCB     6.0      4
+(...TESTES DE FALTA NA BARRA DE GERA플O PARA VERIFICAR LVRT (V = 20 %, Pmax, 0.5s)
+(TCDU     0.1      9                     1                    004 
+(APCB     1.0      4                                                       3.5
+(RMCB     1.5      4
+(...TESTES DE FALTA NA BARRA DE GERA플O PARA VERIFICAR LVRT (V = 0 %, Pmax, 0.2s)
+(TCDU     0.1      9                     1                    004 
+(APCB     1.0      4                                                       0.25
+(RMCB     1.2      4
+(  
+(MDLP    001.0     2               0.0   -1.0
+(MDLP    005.0     2               0.0    5.0
+(APCB      1.0     5
+(TCDU    1.025    10             -100                         4                                                  
+(RMCB     1.25     5                                               
+(ABCI      .25     2    3 1
+(MDSH      .25     2                     200.
+999999
+(
+(===============================================================================
+( DADOS DE SIMULACAO
+(===============================================================================
+DSIM
+( Tmax ) (Stp) ( P ) ( I )
+    80.0  .004    5
+(    10.0 .001     1
+(
+(
+(===============================================================================
+( DADOS DAS VARIAVEIS DE SAIDA
+(===============================================================================
+DPLT
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+(DELT        1          10     4 10
+(FMAQ        1          10
+PELE        1          10
+(QELE        1          10
+(PMEC        1          10
+VOLT        2
+FREQ  *     4
+FREQ        4 
+PTFNT     004          10
+QTFNT     004          10
+VOLT        4
+( PTFNT    004          12
+( QTFNT    004          12
+( STFNT    001          10
+(IIRFNT    001          10
+(IIIFNT    001          10
+(IIMFNT    001          10
+(EFD         1          10
+(VSAD        1          10
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+CDU        09                             127  
+(     
+999999
+(
+(===============================================================================
+( EXECUCAO DA SIMULACAO
+(===============================================================================
+EXSI INIC
+(
+RELA RCDU
+(
+EXSI IRMX
+(
+RELA RMXG 
+(
+(===============================================================================
+( DADOS DE OPCOES DEFAULT DE EXECUCAO
+(===============================================================================
+DOPC
+(Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E
+IMPR D FILE D CONT D
+999999
+(
+(===============================================================================
+( FIM DA SIMULACAO
+(===============================================================================
+FIM

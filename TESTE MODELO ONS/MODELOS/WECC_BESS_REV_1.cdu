@@ -1,0 +1,544 @@
+(=======================================================================
+( DADOS DE CDU
+(=======================================================================
+DCDU
+(
+( nc ) ( nome cdu )
+     9    WECC_BESS
+(----------------------------------------------------------------------
+(      (nome) (     valor      )
+(----------------------------------------------------------------------
+(
+(=====PARAMETROS DO MODELO DO CONVERSOR C.C.-C.A. (REGC_A)
+DEFPAR #MVA   6
+DEFPAR #LVPSW 1
+DEFPAR #RRPWR 10
+DEFPAR #BRKPT 0.1
+DEFPAR #ZEROX 0.05
+DEFPAR #LVPL1 1.22
+DEFPAR #VOLIM 1.2
+DEFPAR #LVPT1 0.2
+DEFPAR #LVPT0 0.05
+DEFPAR #IOLIM -1.3
+DEFPAR #KHV   0.7
+DEFPAR #TG    0.017
+DEFPAR #TFLTR 0.01
+DEFPAR #IQRMX 99
+DEFPAR #IQRMN -99
+DEFPAR #XE    0
+(
+(=====PARAMETROS DE CONTROLE ELÉTRICO DO CONVERSOR C.C.-C.A. (REEC_C)
+DEFPAR #MVAB  6
+DEFPAR #VDIP  -99
+DEFPAR #VUP   99
+DEFPAR #TRV   0.01
+DEFPAR #DBD1  -0.05
+DEFPAR #DBD2  0.05
+DEFPAR #KQV   0.25
+DEFPAR #IQH1  0.75
+DEFPAR #IQL1  -0.75
+DEFPAR #VREF0 1.0
+DEFPAR #SOC0  0.5
+DEFPAR #SOCMX 0.8
+DEFPAR #SOCMN 0.2
+DEFPAR #TP_0  0.05
+DEFPAR #QMX   0.75
+DEFPAR #QMN   -0.75
+DEFPAR #VMX   1.1
+DEFPAR #VMN   0.9
+DEFPAR #KQP   0.0
+DEFPAR #KQI   1.0
+DEFPAR #KVP   0.0
+DEFPAR #KVI   1.0
+DEFPAR #TIQ   0.017
+DEFPAR #DPMX  99
+DEFPAR #DPMN  -99
+DEFPAR #PMX   1.0
+DEFPAR #PMN   -0.667
+DEFPAR #IMAX  2.11
+DEFPAR #TPORD 0.017
+DEFPAR #PFFLG 0
+DEFPAR #VFLG  0
+DEFPAR #QFLG  0
+DEFPAR #PQFLG 0
+DEFPAR #VQ1   0.0
+DEFPAR #IQ1   0.7501
+DEFPAR #VQ2   0.2
+DEFPAR #IQ2   0.7502
+DEFPAR #VQ3   0.5
+DEFPAR #IQ3   0.7503
+DEFPAR #VQ4   1.0
+DEFPAR #IQ4   0.7504
+DEFPAR #VP1   0.2
+DEFPAR #IP1   1.1101
+DEFPAR #VP2   0.5
+DEFPAR #IP2   1.1102
+DEFPAR #VP3   0.75
+DEFPAR #IP3   1.1103
+DEFPAR #VP4   1.0
+DEFPAR #IP4   1.1104
+(
+DEFPAR #BCAP  0.005
+DEFPAR #VREF1 1.0
+(
+(=====PARAMETROS DE CONTROLE ELÉTRICO DA PLANTA (REPC_A)
+(DEFPAR #MVAB  6
+(DEFPAR #TFLTR 0.02
+DEFPAR #KP    1.0
+DEFPAR #KI    0.0001
+DEFPAR #TFT   0.05
+DEFPAR #TFV   0.5
+DEFPAR #REFFG 0
+DEFPAR #VFRZ  0
+(DEFPAR #RC    0
+(DEFPAR #XC    0
+DEFPAR #ZC    0.0
+DEFPAR #KC    -0.5
+DEFPAR #VCPFG 0
+DEFPAR #EMAX  1.0
+DEFPAR #EMIN  -1.0
+DEFPAR #EDBD1 -0.001
+DEFPAR #EDBD2 0.001
+DEFPAR #QMAX  0.5
+DEFPAR #QMIN  -0.5
+DEFPAR #KPG   1.0
+DEFPAR #KIG   0.0001
+DEFPAR #TP_1  0.25
+DEFPAR #FDBD1 -0.00083
+DEFPAR #FDBD2 0.00083
+DEFPAR #FEMAX 99
+DEFPAR #FEMIN -99
+DEFPAR #PMAX  1.0
+DEFPAR #PMIN  -0.667
+DEFPAR #TLAG  0.10
+DEFPAR #DDN   126
+DEFPAR #DUP   126
+DEFPAR #FRQFG 1
+DEFPAR #OUTFG 0
+DEFPAR #PUFLG 1
+(
+DEFPAR #NBRMT 1
+DEFPAR #NBRMU 2
+(
+DEFPAR #TP_2  0.25
+DEFPAR #DDBD2 1.0
+DEFPAR #DDBD1 -1.0
+DEFPAR #KINER 1.0
+DEFPAR #PCFG  0
+(
+(
+(=====MÓDULO REPC_A
+(=MALHA DE CONTROLE P-f
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   1 IMPORT FLXA          PPLT   #NBRMU  
+   2*ENTRAD               PPLT0
+   3*IMPORT PTFNT         PFNT0
+   4 ENTRAD               PSTEP
+   5 SOMA          PFNT0  PFNTRF
+                   PSTEP  PFNTRF
+   6 LEDLAG        PPLT   PPLT_F 1.    0.    1.    #TP_1
+   7 IMPORT FREQ          FBUS   #NBRMT
+   8 ENTRAD               FREF
+   9 SOMA          FREF   DFREF
+                  -FBUS   DFREF
+  10 FUNCAO DEADB2 DFREF  DFDBD0 #FDBD11.    #FDBD21.
+  11 MULTPL        DFDBD0 DFDBD
+                   DFREF  DFDBD
+  12 GANHO         DFDBD  DFDN0  #DDN
+  13 LIMITA        DFDN0  DFDN                            INFN   ZERO
+  14 GANHO         DFDBD  DFUP0  #DUP
+  15 LIMITA        DFUP0  DFUP                            ZERO   INF 
+  16 SOMA          DFDN   PDF
+                   DFUP   PDF
+  17 DELAY         FBUS   FBUS0
+  18 SOMA          FBUS0  DF
+                  -FBUS   DF
+  19*IMPORT DT            DELTAT
+  20 DIVSAO        DF     DFDT0
+                   DELTAT DFDT0
+  21 LEDLAG        DFDT0  DFDT_F 1.    0.    1.    #TP_2
+  22 FUNCAO DEADB2 DFDT_F DFDTDB #DDBD11.    #DDBD21.
+  23 MULTPL        DFDTDB DFDT1
+                   DFDT_F DFDT1
+  24 GANHO         DFDT1  PRCF   #KINER
+  25*ENTRAD               PCFG
+  26 SELET2        ZERO   PPLTRF
+                   PPLT_F PPLTRF
+                   PCFG   PPLTRF
+  27 SOMA          PPLT0  PREF0
+                  -PPLTRF PREF0
+                   PFNTRF PREF0
+                   PDF    PREF0
+                   PRCF   PREF0
+  28 LIMITA        PREF0  PREF1                           FEMIN  FEMAX
+  29 LEDLAG        PREF1  PREF2  #KIG  #KPG  0.0001    1.  
+  30 LIMITA        PREF2  PREF3                           PMIN   PMAX
+  31 LEDLAG        PREF3  PREF4  1.    0.    1.    #TLAG
+  32*ENTRAD               FRQFG
+  33 SELET2        PFNT0  PREF
+                   PREF4  PREF
+                   FRQFG  PREF
+  34 SAIDA         PREF
+(
+(=MALHA DE CONTROLE Q-V
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 101 IMPORT IIMFNT        IBRCH
+ 102 IMPORT VOLT          VRMT   #NBRMT
+ 103 GANHO         IBRCH  VDROP  #ZC
+ 104 IMPORT FLXR          QBRCH  #NBRMU
+ 105 GANHO         QBRCH  V_Q0   #KC
+ 106 SOMA          VRMT   V_Q
+                   V_Q0   V_Q
+ 107*ENTRAD               VCPFG
+ 108 SELET2        V_Q    VCTRL
+                   VDROP  VCTRL
+                   VCPFG  VCTRL
+ 109 LEDLAG        VCTRL  VCTRLF  1.    0.    1.   #TFLTR
+ 110*ENTRAD               VRMT0
+ 111 ENTRAD               VSTEP
+ 112 SOMA          VRMT0  VRMTRF
+                   VSTEP  VRMTRF
+ 113 SOMA          VRMTRF RFFLG1
+                  -VCTRLF RFFLG1
+ 114 LEDLAG        QBRCH  QBRCHF  1.    0.    1.   #TFLTR
+ 115*ENTRAD               QBRCH0
+ 116 ENTRAD               QSTEP
+ 117 SOMA          QBRCH0 QBCHRF
+                   QSTEP  QBCHRF
+ 118 SOMA          QBCHRF RFFLG0
+                  -QBRCHF RFFLG0
+ 119*ENTRAD               REFFG
+ 120 SELET2        RFFLG0 QREF1
+                   RFFLG1 QREF1
+                   REFFG  QREF1
+ 121 FUNCAO DEADB2 QREF1  QREFDB #EDBD11.    #EDBD21.
+ 122 MULTPL        QREFDB QREF2
+                   QREF1  QREF2
+ 123 LIMITA        QREF2  QREF3                           EMIN   EMAX
+ 124 LEDLAG        QREF3  QREF4  #KI   #KP   0.00011.
+ 125 LIMITA        QREF4  QREF5                           QMIN   QMAX
+ 126 LEDLAG        QREF5  QREF   1.    #TFT  1.    #TFV
+ 127 SAIDA         RFFLG0
+(
+(=====MÓDULO REEC_C
+(=CALCULO DO SOC
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 201 ENTRAD               RESET
+ 202 ENTRAD               VINIC
+ 203 IMPORT PTFNT         PGEN
+ 204 FUNCAO MENOS  PGEN   PGENN
+ 205 INTRES        PGENN  SOCX   #BCAP
+                   RESET  SOCX
+                   VINIC  SOCX
+ 206 LIMITA        SOCX   SOC                             SOCMN  SOCMX
+ 207 SAIDA         SOC
+(
+(=CALCULO DO IPCMD
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 301 DELAY         PREF   PREF_O
+ 302 SOMA          PREF   DPREF
+                  -PREF_O DPREF
+ 303 DIVSAO        DPREF  DPRFDT
+                   DELTAT DPRFDT
+ 304 LIMITA        DPRFDT DPRFT1                          DPMN   DPMX
+ 305 MULTPL        DPRFT1 DPREF1
+                   DELTAT DPREF1
+ 306 SOMA          PREF_O PREF_N
+                   DPREF1 PREF_N
+ 307 LEDLAG        PREF_N PORD   1.    0.    1.    #TPORD PMN    PMX
+ 308 LIMITA        VTFLT  VTFLTL                          VTMIN  INF
+ 309 DIVSAO        PORD   IPCMD0
+                   VTFLTL IPCMD0
+ 310 LIMITA        IPCMD0 IPCMD                           IPMN   IPMX
+ 311 SAIDA         IPCMD
+(
+(=CALCULO DO IQINJ
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 401 IMPORT VOLT          VT
+ 402 LEDLAG        VT     VTFLT  1.    0.    1.    #TRV
+ 403*ENTRAD               VREF0
+ 404 SOMA          VREF0  VINJ
+                  -VTFLT  VINJ
+ 405 FUNCAO DEADB2 VINJ   VINJDB #DBD1 1.    #DBD2 1.
+ 406 MULTPL        VINJDB VERR
+                   VINJ   VERR
+ 407 GANHO         VERR   IQV    #KQV
+ 408 LIMITA        IQV    IQINJ                           IQL1   IQH1
+ 409 SAIDA         IQINJ
+(
+(=CALCULO DO IQCMD
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 501 IMPORT  QTFNT        QGEN
+ 502 LEDLAG        PGEN   PEL    1.    0.    1.    #TP_0
+ 503 LIMITA        PGEN   PGENL                           DZERO  INF
+ 504*DIVSAO        QGEN   TGPHI
+                   PGENL  TGPHI
+ 505 MULTPL        TGPHI  QPFREF
+                   PEL    QPFREF
+ 506*ENTRAD               PFFLG
+ 507 SELET2        QREF   QENT
+                   QPFREF QENT
+                   PFFLG  QENT
+ 508 LIMITA        QENT   QENTL                           QMN    QMX
+ 509 SOMA          QENTL  W1
+                  -QGEN   W1
+ 510 LEDLAG        W1     W2     #KQI  #KQP  0.0001    1.
+ 511 LIMITA        W2     VFLG1                           VMN    VMX
+ 512 SAIDA         VFLG1
+ 513*ENTRAD               VREF1
+ 514 SOMA          QENT   VFLG0
+                   VREF1  VFLG0
+ 515*ENTRAD               VFLG
+ 516 SELET2        VFLG0  W3
+                   VFLG1  W3
+                   VFLG   W3
+ 517 LIMITA        W3     W3L                             VMN    VMX
+ 518 SOMA          W3L    W4
+                  -VTFLT  W4
+ 519 LEDLAG        W4     W5     #KVI  #KVP  0.0001    1.
+ 520 LIMITA        W5     QFLG1                           IQMN   IQMX
+ 521 DIVSAO        QENT   W6
+                   VTFLTL W6
+ 522 LEDLAG        W6     QFLG0  1.    0.    1.    #TIQ
+ 523*ENTRAD               QFLG
+ 524 SELET2        QFLG0  IQCMD0
+                   QFLG1  IQCMD0
+                   QFLG   IQCMD0
+ 525 SOMA          IQCMD0 IQCMD1
+                   IQINJ  IQCMD1
+ 526 LIMITA        IQCMD1 IQCMD                           IQMN   IQMX
+ 527 SAIDA         IQCMD
+(
+(=CURRENT LIMIT LOGIC (IQMX, IQMN, IPMX, IPMN)
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 601 FUNCAO PONTOS VTFLT  VDL1   #VQ1  #IQ1
+                                 #VQ2  #IQ2
+                                 #VQ3  #IQ3
+                                 #VQ4  #IQ4
+ 602 FUNCAO PONTOS VTFLT  VDL2   #VP1  #IP1
+                                 #VP2  #IP2
+                                 #VP3  #IP3
+                                 #VP4  #IP4
+ 603*ENTRAD               IMAX
+ 604 FUNCAO X**2   IMAX   IMAX2
+ 605 FUNCAO X**2   IPCMD  IPCMD2
+ 606 FUNCAO X**2   IQCMD  IQCMD2
+ 607 MIN           VDL1   IQMX0
+                   IMAX   IQMX0
+ 609 SOMA          IMAX2  VAX0
+                  -IQCMD2 VAX0
+ 610 FUNCAO SQRT   VAX0   VAX1
+ 611 MIN           VDL2   IPMX0
+                   VAX1   IPMX0
+ 612 SOMA          IMAX2  VAX2
+                  -IPCMD2 VAX2
+ 613 FUNCAO SQRT   VAX2   VAX3
+ 614 MIN           VDL1   IQMX1
+                   VAX3   IQMX1
+ 615 MIN           VDL2   IPMX1
+                   IMAX   IPMX1
+ 616*ENTRAD               PQFLG
+ 617 SELET2        IQMX0  IQMX
+                   IQMX1  IQMX
+                   PQFLG  IQMX
+ 618 SELET2        IPMX0  IPMX2
+                   IPMX1  IPMX2
+                   PQFLG  IPMX2
+ 619 FUNCAO MENOS  IQMX   IQMN
+ 620 FUNCAO MENOS  IPMX2  IPMN2
+ 621*ENTRAD               SOCMX
+ 622*ENTRAD               SOCMN
+ 623 COMPAR .LT.   SOC    SOCCT1
+                   SOCMX  SOCCT1
+ 624 COMPAR .GT.   SOC    SOCCT2
+                   SOCMN  SOCCT2
+ 625*ENTRAD               ZERO
+ 626 SELET2        ZERO   IPMN
+                   IPMN2  IPMN
+                   SOCCT1 IPMN
+ 627 SELET2        ZERO   IPMX
+                   IPMX2  IPMX
+                   SOCCT2 IPMX
+ 628 SAIDA         IPMX
+ 629 SAIDA         IPMN
+ 630 SAIDA         IQMX
+ 631 SAIDA         IQMN
+ 632 SAIDA         IMAX2
+ 633 SAIDA         IPCMD2
+(
+(=====MÓDULO REGC_A
+(=CALCULO DO IQ
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 701 LEDLAG        IQCMD  IQ0     -1.   0.    1.    #TG 
+ 702 DELAY         IQ0    IQ0_O
+ 703 SOMA          IQ0    DIQ0
+                  -IQ0_O  DIQ0
+ 704 DIVSAO        DIQ0   IQ0R
+                   DELTAT IQ0R
+ 705 LIMITA        IQ0R   IQ1P                            INFN   IQRMX
+ 706 LIMITA        IQ0R   IQ1N                            IQRMN  INF
+ 707*ENTRAD               QGEN0
+ 708 FUNCAO SINAL  QGEN0  QGFLG
+ 709 SELET2        IQ1N   IQ1
+                   IQ1P   IQ1
+                   QGFLG  IQ1
+ 710 MULTPL        IQ1    DIQ1
+                   DELTAT DIQ1
+ 711 SOMA          IQ0_O  IQ2
+                   DIQ1   IQ2
+ 712 MULTPL        IQ2    IAX1
+                   VT     IAX1
+ 713*ENTRAD               VOLIM
+ 714 SOMA          VT     IAX2
+                  -VOLIM  IAX2
+ 715 GANHO         IAX2   IAX3   #KHV
+ 716 LIMITA        IAX3   IAX4                            ZERO   INF
+ 717 COMPAR .GT.   VT     VGFLG
+                   VOLIM  VGFLG
+ 718 SELET2        ZERO   IAX5
+                   IAX4   IAX5
+                   VGFLG  IAX5
+ 719 SOMA          IAX1   IAX6
+                  -IAX5   IAX6
+ 720 LIMITA        IAX6   IQ                              IOLIM  INF
+ 721 SAIDA         IQ
+(
+(=CALCULO DO IP
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 801 FUNCAO RAMPA  VT     VTLV   #LVPT0 0.   #LVPT1 1.
+ 802 LEDLAG        VT     VTFLTR 1.    0.    1.    #TFLTR
+ 803 FUNCAO RAMPA  VTFLTR VLVPL  #ZEROX 0.   #BRKPT#LVPL1
+ 804 LEDLAG        IPCMD  IP0A   1.    0.    1.    #TG    INFN   INF
+ 805 LEDLAG        IPCMD  IP0B   1.    0.    1.    #TG    INFN   VLVPL
+ 806*ENTRAD               LVPSW
+ 807 SELET2        IP0A   IP0
+                   IP0B   IP0
+                   LVPSW  IP0
+ 808 DELAY         IP0    IP0_O
+ 809 SOMA          IP0    DIP0
+                  -IP0_O  DIP0
+ 810 DIVSAO        DIP0   DIP0R
+                   DELTAT DIP0R
+ 811*ENTRAD               RRPWRP
+ 812 FUNCAO MENOS  RRPWRP RRPWRN
+ 813 LIMITA        DIP0R  DIP0RL                          RRPWRN RRPWRP
+ 814 MULTPL        DIP0RL DIP1
+                   DELTAT DIP1
+ 815 SOMA          IP0_O  IP2
+                   DIP1   IP2
+ 816 MULTPL        IP2    IP
+                   VTLV   IP
+ 817 SAIDA         IP
+(
+(=TRANSFORMADA
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 901 IMPORT ANGL          TET
+ 902 FUNCAO COS    TET    CT
+ 903 FUNCAO SIN    TET    ST
+ 904 MULTPL        IP     Id_CT
+                   CT     Id_CT
+ 905 MULTPL        IP     Id_ST
+                   ST     Id_ST
+ 906 MULTPL        IQ     IQ_ST
+                   ST     IQ_ST
+ 907 MULTPL        IQ     IQ_CT
+                   CT     IQ_CT
+ 908 SOMA          Id_CT  Ireal
+                  -IQ_ST  Ireal
+ 909 SOMA          Id_ST  Iimag
+                   IQ_CT  Iimag
+ 910 EXPORT IIRFNT Ireal
+ 911 EXPORT IIIFNT Iimag
+(
+(=INICIALIZAR IPCMD E IQCMD
+1001 MULTPL        Ireal  X1
+                   ST     X1
+1002 DIVSAO        X1     X2
+                   CT     X2
+1003 SOMA          Iimag  X3
+                  -X2     X3
+1004 FUNCAO X**2   ST     ST2
+1005 FUNCAO X**2   CT     CT2
+1006 SOMA          ST2    X4
+                   CT2    X4
+1007 DIVSAO        X4     X5
+                   CT     X5
+1008 DIVSAO        X3     IQi
+                   X5     IQi
+1009 MULTPL        IQi    X6
+                   ST     X6
+1010 SOMA          Ireal  X7
+                   X6     X7
+1011 DIVSAO        X7     IPi
+                   CT     IPi
+1012 DIVSAO        IQi    IQCMDi
+                   VT     IQCMDi
+1013 DIVSAO        IPi    IPCMDi
+                   VT     IPCMDi
+1014 SAIDA         IQCMDi
+1015 SAIDA         IPCMDi
+(
+(----------------------------------------------------------------------
+(      (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+DEFVAL VAR    PPLT0  PPLT
+DEFVAL        PSTEP  0.0
+DEFVAL VAR    FREF   FBUS
+DEFVAL        INF    99999
+DEFVAL        INFN   -99999
+DEFVAL        ZERO   0.0
+DEFVAL        FEMIN  #FEMIN
+DEFVAL        FEMAX  #FEMAX
+DEFVAL        PMIN   #PMIN
+DEFVAL        PMAX   #PMAX
+DEFVAL        FRQFG  #FRQFG
+DEFVAL        VCPFG  #VCPFG
+DEFVAL        REFFG  #REFFG
+DEFVAL VAR    VRMT0  VRMT
+DEFVAL        VSTEP  0.0
+DEFVAL VAR    QBRCH0 QBRCH
+DEFVAL        QSTEP  0.0
+DEFVAL        EMIN   #EMIN
+DEFVAL        EMAX   #EMAX
+DEFVAL        QMIN   #QMIN
+DEFVAL        QMAX   #QMAX
+DEFVAL        SOCMX  #SOCMX
+DEFVAL        SOCMN  #SOCMN
+DEFVAL        RESET  0.0
+DEFVAL        VINIC  #SOC0
+DEFVAL        SOCX   #SOC0 
+DEFVAL        DPMX   #DPMX
+DEFVAL        DPMN   #DPMN
+DEFVAL        PMX    #PMX
+DEFVAL        PMN    #PMN
+DEFVAL        VTMIN  0.01
+DEFVAL        VREF0  #VREF0
+DEFVAL        VREF1  #VREF1 
+DEFVAL        IQH1   #IQH1
+DEFVAL        IQL1   #IQL1
+DEFVAL        DZERO  0.0001
+DEFVAL        PFFLG  #PFFLG
+DEFVAL        QMX    #QMX
+DEFVAL        QMN    #QMN
+DEFVAL        VMX    #VMX
+DEFVAL        VMN    #VMN
+DEFVAL        VFLG   #VFLG
+DEFVAL        QFLG   #QFLG
+DEFVAL        IMAX   #IMAX
+DEFVAL        PQFLG  #PQFLG
+DEFVAL        IQRMX  #IQRMX
+DEFVAL        IQRMN  #IQRMN
+DEFVAL VAR    QGEN0  QGEN
+DEFVAL        VOLIM  #VOLIM
+DEFVAL        IOLIM  #IOLIM
+DEFVAL        LVPSW  #LVPSW
+DEFVAL        RRPWRP #RRPWR
+DEFVAL VAR    IPCMD  IPCMDi
+DEFVAL VAR    IQCMD  IQCMDi
+DEFVAL        PCFG   #PCFG
+(
+(
+FIMCDU
+(
+999999
+Fim

@@ -1,0 +1,1936 @@
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+                                                                                 
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONSTANTES
+
+ X----X------X
+  Nome  Valor 
+ X----X------X
+
+  TEPQ    .01
+  TEMD  1.E-6
+  TETE  1.E-6
+  TABS  1.E-6
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+                                                                                 
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ SUMARIO DE CONSTANTES
+
+ X-------X-------X-------X-------X-------X-------X-------X-------X
+   TETE    TEMD    TEPQ    TABS    TBID    PFFB    AMX1    AMX2
+ X-------X-------X-------X-------X-------X-------X-------X-------X
+
+    .1E-5   .1E-5     .01   .1E-5   .1E-8     .02    360.   1000.
+
+
+ X------X------X------X------X------X------X------X------X
+   LCRT   LPRT   IMDS   IACS   IACE   MRAC   MRDC   ITMR
+ X------X------X------X------X------X------X------X------X
+
+      24     60     10     10    100     30    100     20
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ *** Caso ANAREDE  1 restabelecido
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ LISTAGEM DOS CASOS ARMAZENADOS DE FLUXO DE POTENCIA - ANAREDE
+ ARQUIVO HISTORICO: REDE\FRACA-SEM_MEDIA.SAV
+ X----X---------------------------------------------------------------------X
+  CASO                      INFORMACOES DO CASO GRAVADO
+ X----X---------------------------------------------------------------------X
+
+     1 DATA: 28/09/2020 / HORA: 11:10:21   / VERSAO DO PROGRAMA: V10.00.01
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+
+ X-------X---------X-------------------------------X
+  UNIDADE    NOME           IDENTIFICACAO
+   LOGICA   LOGICO            DO ARQUIVO
+ X-------X---------X-------------------------------X
+
+      1   TEM$DADOS CONIN$
+      2   TEM$SAVCA REDE\FRACA-SEM_MEDIA.SAV
+      3   TEM$MODEL MODELOS\WECC_BESS_REV_1.CDU
+      4   TEM$PRINT SAIDAS\FRACA-SEM_MEDIA_R0.OUT
+      5   TEM$INPUT CONIN$
+      6   TEM$VIDEO CONOUT$
+      7   TEM$PUNCH NUL
+      8   TEM$PLOTA PLOT\FRACA-SEM_MEDIA_R1.PLT
+      9   TEM$LOG   SAIDAS\FRACA-SEM_MEDIA_R0.LOG
+     10   TEM$SNAPS NUL
+     11   TEM$ARQSN NUL
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+               DEFPAR                 #MVA                      6
+               DEFPAR                 #LVPSW                    1
+               DEFPAR                 #RRPWR                   10
+               DEFPAR                 #BRKPT                  0.1
+               DEFPAR                 #ZEROX                 0.05
+               DEFPAR                 #LVPL1                 1.22
+               DEFPAR                 #VOLIM                  1.2
+               DEFPAR                 #LVPT1                  0.2
+               DEFPAR                 #LVPT0                 0.05
+               DEFPAR                 #IOLIM                 -1.3
+               DEFPAR                 #KHV                    0.7
+               DEFPAR                 #TG                   0.017
+               DEFPAR                 #TFLTR                 0.01
+               DEFPAR                 #IQRMX                   99
+               DEFPAR                 #IQRMN                  -99
+               DEFPAR                 #XE                       0
+               DEFPAR                 #MVAB                     6
+               DEFPAR                 #VDIP                   -99
+               DEFPAR                 #VUP                     99
+               DEFPAR                 #TRV                   0.01
+               DEFPAR                 #DBD1                 -0.05
+               DEFPAR                 #DBD2                  0.05
+               DEFPAR                 #KQV                   0.25
+               DEFPAR                 #IQH1                  0.75
+               DEFPAR                 #IQL1                 -0.75
+               DEFPAR                 #VREF0                  1.0
+               DEFPAR                 #SOC0                   0.5
+               DEFPAR                 #SOCMX                  0.8
+               DEFPAR                 #SOCMN                  0.2
+               DEFPAR                 #TP_0                  0.05
+               DEFPAR                 #QMX                   0.75
+               DEFPAR                 #QMN                  -0.75
+               DEFPAR                 #VMX                    1.1
+               DEFPAR                 #VMN                    0.9
+               DEFPAR                 #KQP                    0.0
+               DEFPAR                 #KQI                    1.0
+               DEFPAR                 #KVP                    0.0
+               DEFPAR                 #KVI                    1.0
+               DEFPAR                 #TIQ                  0.017
+               DEFPAR                 #DPMX                    99
+               DEFPAR                 #DPMN                   -99
+               DEFPAR                 #PMX                    1.0
+               DEFPAR                 #PMN                 -0.667
+               DEFPAR                 #IMAX                  2.11
+               DEFPAR                 #TPORD                0.017
+               DEFPAR                 #PFFLG                    0
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+               DEFPAR                 #VFLG                     0
+               DEFPAR                 #QFLG                     0
+               DEFPAR                 #PQFLG                    0
+               DEFPAR                 #VQ1                    0.0
+               DEFPAR                 #IQ1                 0.7501
+               DEFPAR                 #VQ2                    0.2
+               DEFPAR                 #IQ2                 0.7502
+               DEFPAR                 #VQ3                    0.5
+               DEFPAR                 #IQ3                 0.7503
+               DEFPAR                 #VQ4                    1.0
+               DEFPAR                 #IQ4                 0.7504
+               DEFPAR                 #VP1                    0.2
+               DEFPAR                 #IP1                 1.1101
+               DEFPAR                 #VP2                    0.5
+               DEFPAR                 #IP2                 1.1102
+               DEFPAR                 #VP3                   0.75
+               DEFPAR                 #IP3                 1.1103
+               DEFPAR                 #VP4                    1.0
+               DEFPAR                 #IP4                 1.1104
+               DEFPAR                 #BCAP                 0.005
+               DEFPAR                 #VREF1                  1.0
+               DEFPAR                 #KP                     1.0
+               DEFPAR                 #KI                  0.0001
+               DEFPAR                 #TFT                   0.05
+               DEFPAR                 #TFV                    0.5
+               DEFPAR                 #REFFG                    0
+               DEFPAR                 #VFRZ                     0
+               DEFPAR                 #ZC                     0.0
+               DEFPAR                 #KC                    -0.5
+               DEFPAR                 #VCPFG                    0
+               DEFPAR                 #EMAX                   1.0
+               DEFPAR                 #EMIN                  -1.0
+               DEFPAR                 #EDBD1               -0.001
+               DEFPAR                 #EDBD2                0.001
+               DEFPAR                 #QMAX                   0.5
+               DEFPAR                 #QMIN                  -0.5
+               DEFPAR                 #KPG                    1.0
+               DEFPAR                 #KIG                 0.0001
+               DEFPAR                 #TP_1                  0.25
+               DEFPAR                 #FDBD1             -0.00083
+               DEFPAR                 #FDBD2              0.00083
+               DEFPAR                 #FEMAX                   99
+               DEFPAR                 #FEMIN                  -99
+               DEFPAR                 #PMAX                   1.0
+               DEFPAR                 #PMIN                -0.667
+               DEFPAR                 #TLAG                  0.10
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+               DEFPAR                 #DDN                    126
+               DEFPAR                 #DUP                    126
+               DEFPAR                 #FRQFG                    1
+               DEFPAR                 #OUTFG                    0
+               DEFPAR                 #PUFLG                    1
+               DEFPAR                 #NBRMT                    1
+               DEFPAR                 #NBRMU                    2
+               DEFPAR                 #TP_2                  0.25
+               DEFPAR                 #DDBD2                  1.0
+               DEFPAR                 #DDBD1                 -1.0
+               DEFPAR                 #KINER                  1.0
+               DEFPAR                 #PCFG                     0
+           1   IMPORT FLXA            PPLT   #NBRMU                            
+                                                                               
+           2 * ENTRAD                 PPLT0                                    
+                                                                               
+           3 * IMPORT PTFNT           PFNT0                                    
+                                                                               
+           4   ENTRAD                 PSTEP                                    
+                                                                               
+           5   SOMA            PFNT0  PFNTRF                                   
+                                                                               
+                               PSTEP  PFNTRF                                   
+                                                                               
+           6   LEDLAG          PPLT   PPLT_F     1.     0.     1. #TP_1        
+                                                                               
+           7   IMPORT FREQ            FBUS   #NBRMT                            
+                                                                               
+           8   ENTRAD                 FREF                                     
+                                                                               
+           9   SOMA            FREF   DFREF                                    
+                                                                               
+                             - FBUS   DFREF                                    
+                                                                               
+          10   FUNCAO DEADB2   DFREF  DFDBD0 #FDBD1     1. #FDBD2     1.       
+                                                                               
+          11   MULTPL          DFDBD0 DFDBD                                    
+                                                                               
+                               DFREF  DFDBD                                    
+                                                                               
+          12   GANHO           DFDBD  DFDN0  #DDN                              
+                                                                               
+          13   LIMITA          DFDN0  DFDN                               INFN  
+                                                                         ZERO  
+          14   GANHO           DFDBD  DFUP0  #DUP                              
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+          15   LIMITA          DFUP0  DFUP                               ZERO  
+                                                                         INF   
+          16   SOMA            DFDN   PDF                                      
+                                                                               
+                               DFUP   PDF                                      
+                                                                               
+          17   DELAY           FBUS   FBUS0                                    
+                                                                               
+          18   SOMA            FBUS0  DF                                       
+                                                                               
+                             - FBUS   DF                                       
+                                                                               
+          19 * IMPORT DT              DELTAT                                   
+                                                                               
+          20   DIVSAO          DF     DFDT0                                    
+                                                                               
+                               DELTAT DFDT0                                    
+                                                                               
+          21   LEDLAG          DFDT0  DFDT_F     1.     0.     1. #TP_2        
+                                                                               
+          22   FUNCAO DEADB2   DFDT_F DFDTDB #DDBD1     1. #DDBD2     1.       
+                                                                               
+          23   MULTPL          DFDTDB DFDT1                                    
+                                                                               
+                               DFDT_F DFDT1                                    
+                                                                               
+          24   GANHO           DFDT1  PRCF   #KINER                            
+                                                                               
+          25 * ENTRAD                 PCFG                                     
+                                                                               
+          26   SELET2          ZERO   PPLTRF                                   
+                                                                               
+                               PPLT_F PPLTRF                                   
+                                                                               
+                               PCFG   PPLTRF                                   
+                                                                               
+          27   SOMA            PPLT0  PREF0                                    
+                                                                               
+                             - PPLTRF PREF0                                    
+                                                                               
+                               PFNTRF PREF0                                    
+                                                                               
+                               PDF    PREF0                                    
+                                                                               
+                               PRCF   PREF0                                    
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+          28   LIMITA          PREF0  PREF1                              FEMIN 
+                                                                         FEMAX 
+          29   LEDLAG          PREF1  PREF2  #KIG   #KPG   0.0001     1.       
+                                                                               
+          30   LIMITA          PREF2  PREF3                              PMIN  
+                                                                         PMAX  
+          31   LEDLAG          PREF3  PREF4      1.     0.     1. #TLAG        
+                                                                               
+          32 * ENTRAD                 FRQFG                                    
+                                                                               
+          33   SELET2          PFNT0  PREF                                     
+                                                                               
+                               PREF4  PREF                                     
+                                                                               
+                               FRQFG  PREF                                     
+                                                                               
+          34   SAIDA           PREF                                            
+                                                                               
+         101   IMPORT IIMFNT          IBRCH                                    
+                                                                               
+         102   IMPORT VOLT            VRMT   #NBRMT                            
+                                                                               
+         103   GANHO           IBRCH  VDROP  #ZC                               
+                                                                               
+ *** AVISO INPCDU-405 ***
+ Bloco com parametro P1 nulo.
+
+         104   IMPORT FLXR            QBRCH  #NBRMU                            
+                                                                               
+         105   GANHO           QBRCH  V_Q0   #KC                               
+                                                                               
+         106   SOMA            VRMT   V_Q                                      
+                                                                               
+                               V_Q0   V_Q                                      
+                                                                               
+         107 * ENTRAD                 VCPFG                                    
+                                                                               
+         108   SELET2          V_Q    VCTRL                                    
+                                                                               
+                               VDROP  VCTRL                                    
+                                                                               
+                               VCPFG  VCTRL                                    
+                                                                               
+         109   LEDLAG          VCTRL  VCTRLF     1.     0.     1. #TFLTR       
+                                                                               
+         110 * ENTRAD                 VRMT0                                    
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+         111   ENTRAD                 VSTEP                                    
+                                                                               
+         112   SOMA            VRMT0  VRMTRF                                   
+                                                                               
+                               VSTEP  VRMTRF                                   
+                                                                               
+         113   SOMA            VRMTRF RFFLG1                                   
+                                                                               
+                             - VCTRLF RFFLG1                                   
+                                                                               
+         114   LEDLAG          QBRCH  QBRCHF     1.     0.     1. #TFLTR       
+                                                                               
+         115 * ENTRAD                 QBRCH0                                   
+                                                                               
+         116   ENTRAD                 QSTEP                                    
+                                                                               
+         117   SOMA            QBRCH0 QBCHRF                                   
+                                                                               
+                               QSTEP  QBCHRF                                   
+                                                                               
+         118   SOMA            QBCHRF RFFLG0                                   
+                                                                               
+                             - QBRCHF RFFLG0                                   
+                                                                               
+         119 * ENTRAD                 REFFG                                    
+                                                                               
+         120   SELET2          RFFLG0 QREF1                                    
+                                                                               
+                               RFFLG1 QREF1                                    
+                                                                               
+                               REFFG  QREF1                                    
+                                                                               
+         121   FUNCAO DEADB2   QREF1  QREFDB #EDBD1     1. #EDBD2     1.       
+                                                                               
+         122   MULTPL          QREFDB QREF2                                    
+                                                                               
+                               QREF1  QREF2                                    
+                                                                               
+         123   LIMITA          QREF2  QREF3                              EMIN  
+                                                                         EMAX  
+         124   LEDLAG          QREF3  QREF4  #KI    #KP    0.0001     1.       
+                                                                               
+         125   LIMITA          QREF4  QREF5                              QMIN  
+                                                                         QMAX  
+         126   LEDLAG          QREF5  QREF       1. #TFT       1. #TFV         
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+         127   SAIDA           RFFLG0                                          
+                                                                               
+         201   ENTRAD                 RESET                                    
+                                                                               
+         202   ENTRAD                 VINIC                                    
+                                                                               
+         203   IMPORT PTFNT           PGEN                                     
+                                                                               
+         204   FUNCAO MENOS    PGEN   PGENN                                    
+                                                                               
+         205   INTRES          PGENN  SOCX   #BCAP                             
+                                                                               
+                               RESET  SOCX                                     
+                                                                               
+                               VINIC  SOCX                                     
+                                                                               
+         206   LIMITA          SOCX   SOC                                SOCMN 
+                                                                         SOCMX 
+         207   SAIDA           SOC                                             
+                                                                               
+         301   DELAY           PREF   PREF_O                                   
+                                                                               
+         302   SOMA            PREF   DPREF                                    
+                                                                               
+                             - PREF_O DPREF                                    
+                                                                               
+         303   DIVSAO          DPREF  DPRFDT                                   
+                                                                               
+                               DELTAT DPRFDT                                   
+                                                                               
+         304   LIMITA          DPRFDT DPRFT1                             DPMN  
+                                                                         DPMX  
+         305   MULTPL          DPRFT1 DPREF1                                   
+                                                                               
+                               DELTAT DPREF1                                   
+                                                                               
+         306   SOMA            PREF_O PREF_N                                   
+                                                                               
+                               DPREF1 PREF_N                                   
+                                                                               
+         307   LEDLAG          PREF_N PORD       1.     0.     1. #TPORD PMN   
+                                                                         PMX   
+         308   LIMITA          VTFLT  VTFLTL                             VTMIN 
+                                                                         INF   
+         309   DIVSAO          PORD   IPCMD0                                   
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+                               VTFLTL IPCMD0                                   
+                                                                               
+         310   LIMITA          IPCMD0 IPCMD                              IPMN  
+                                                                         IPMX  
+         311   SAIDA           IPCMD                                           
+                                                                               
+         401   IMPORT VOLT            VT                                       
+                                                                               
+         402   LEDLAG          VT     VTFLT      1.     0.     1. #TRV         
+                                                                               
+         403 * ENTRAD                 VREF0                                    
+                                                                               
+         404   SOMA            VREF0  VINJ                                     
+                                                                               
+                             - VTFLT  VINJ                                     
+                                                                               
+         405   FUNCAO DEADB2   VINJ   VINJDB #DBD1      1. #DBD2      1.       
+                                                                               
+         406   MULTPL          VINJDB VERR                                     
+                                                                               
+                               VINJ   VERR                                     
+                                                                               
+         407   GANHO           VERR   IQV    #KQV                              
+                                                                               
+         408   LIMITA          IQV    IQINJ                              IQL1  
+                                                                         IQH1  
+         409   SAIDA           IQINJ                                           
+                                                                               
+         501   IMPORT QTFNT           QGEN                                     
+                                                                               
+         502   LEDLAG          PGEN   PEL        1.     0.     1. #TP_0        
+                                                                               
+         503   LIMITA          PGEN   PGENL                              DZERO 
+                                                                         INF   
+         504 * DIVSAO          QGEN   TGPHI                                    
+                                                                               
+                               PGENL  TGPHI                                    
+                                                                               
+         505   MULTPL          TGPHI  QPFREF                                   
+                                                                               
+                               PEL    QPFREF                                   
+                                                                               
+         506 * ENTRAD                 PFFLG                                    
+                                                                               
+         507   SELET2          QREF   QENT                                     
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+                               QPFREF QENT                                     
+                                                                               
+                               PFFLG  QENT                                     
+                                                                               
+         508   LIMITA          QENT   QENTL                              QMN   
+                                                                         QMX   
+         509   SOMA            QENTL  W1                                       
+                                                                               
+                             - QGEN   W1                                       
+                                                                               
+         510   LEDLAG          W1     W2     #KQI   #KQP   0.0001     1.       
+                                                                               
+         511   LIMITA          W2     VFLG1                              VMN   
+                                                                         VMX   
+         512   SAIDA           VFLG1                                           
+                                                                               
+         513 * ENTRAD                 VREF1                                    
+                                                                               
+         514   SOMA            QENT   VFLG0                                    
+                                                                               
+                               VREF1  VFLG0                                    
+                                                                               
+         515 * ENTRAD                 VFLG                                     
+                                                                               
+         516   SELET2          VFLG0  W3                                       
+                                                                               
+                               VFLG1  W3                                       
+                                                                               
+                               VFLG   W3                                       
+                                                                               
+         517   LIMITA          W3     W3L                                VMN   
+                                                                         VMX   
+         518   SOMA            W3L    W4                                       
+                                                                               
+                             - VTFLT  W4                                       
+                                                                               
+         519   LEDLAG          W4     W5     #KVI   #KVP   0.0001     1.       
+                                                                               
+         520   LIMITA          W5     QFLG1                              IQMN  
+                                                                         IQMX  
+         521   DIVSAO          QENT   W6                                       
+                                                                               
+                               VTFLTL W6                                       
+                                                                               
+         522   LEDLAG          W6     QFLG0      1.     0.     1. #TIQ         
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+         523 * ENTRAD                 QFLG                                     
+                                                                               
+         524   SELET2          QFLG0  IQCMD0                                   
+                                                                               
+                               QFLG1  IQCMD0                                   
+                                                                               
+                               QFLG   IQCMD0                                   
+                                                                               
+         525   SOMA            IQCMD0 IQCMD1                                   
+                                                                               
+                               IQINJ  IQCMD1                                   
+                                                                               
+         526   LIMITA          IQCMD1 IQCMD                              IQMN  
+                                                                         IQMX  
+         527   SAIDA           IQCMD                                           
+                                                                               
+         601   FUNCAO PONTOS   VTFLT  VDL1   #VQ1   #IQ1                       
+                                                                               
+                                             #VQ2   #IQ2                       
+                                                                               
+                                             #VQ3   #IQ3                       
+                                                                               
+                                             #VQ4   #IQ4                       
+                                                                               
+         602   FUNCAO PONTOS   VTFLT  VDL2   #VP1   #IP1                       
+                                                                               
+                                             #VP2   #IP2                       
+                                                                               
+                                             #VP3   #IP3                       
+                                                                               
+                                             #VP4   #IP4                       
+                                                                               
+         603 * ENTRAD                 IMAX                                     
+                                                                               
+         604   FUNCAO X**2     IMAX   IMAX2                                    
+                                                                               
+         605   FUNCAO X**2     IPCMD  IPCMD2                                   
+                                                                               
+         606   FUNCAO X**2     IQCMD  IQCMD2                                   
+                                                                               
+         607   MIN             VDL1   IQMX0                                    
+                                                                               
+                               IMAX   IQMX0                                    
+                                                                               
+         609   SOMA            IMAX2  VAX0                                     
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+                             - IQCMD2 VAX0                                     
+                                                                               
+         610   FUNCAO SQRT     VAX0   VAX1                                     
+                                                                               
+         611   MIN             VDL2   IPMX0                                    
+                                                                               
+                               VAX1   IPMX0                                    
+                                                                               
+         612   SOMA            IMAX2  VAX2                                     
+                                                                               
+                             - IPCMD2 VAX2                                     
+                                                                               
+         613   FUNCAO SQRT     VAX2   VAX3                                     
+                                                                               
+         614   MIN             VDL1   IQMX1                                    
+                                                                               
+                               VAX3   IQMX1                                    
+                                                                               
+         615   MIN             VDL2   IPMX1                                    
+                                                                               
+                               IMAX   IPMX1                                    
+                                                                               
+         616 * ENTRAD                 PQFLG                                    
+                                                                               
+         617   SELET2          IQMX0  IQMX                                     
+                                                                               
+                               IQMX1  IQMX                                     
+                                                                               
+                               PQFLG  IQMX                                     
+                                                                               
+         618   SELET2          IPMX0  IPMX2                                    
+                                                                               
+                               IPMX1  IPMX2                                    
+                                                                               
+                               PQFLG  IPMX2                                    
+                                                                               
+         619   FUNCAO MENOS    IQMX   IQMN                                     
+                                                                               
+         620   FUNCAO MENOS    IPMX2  IPMN2                                    
+                                                                               
+         621 * ENTRAD                 SOCMX                                    
+                                                                               
+         622 * ENTRAD                 SOCMN                                    
+                                                                               
+         623   COMPAR .LT.     SOC    SOCCT1                                   
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+                               SOCMX  SOCCT1                                   
+                                                                               
+         624   COMPAR .GT.     SOC    SOCCT2                                   
+                                                                               
+                               SOCMN  SOCCT2                                   
+                                                                               
+         625 * ENTRAD                 ZERO                                     
+                                                                               
+         626   SELET2          ZERO   IPMN                                     
+                                                                               
+                               IPMN2  IPMN                                     
+                                                                               
+                               SOCCT1 IPMN                                     
+                                                                               
+         627   SELET2          ZERO   IPMX                                     
+                                                                               
+                               IPMX2  IPMX                                     
+                                                                               
+                               SOCCT2 IPMX                                     
+                                                                               
+         628   SAIDA           IPMX                                            
+                                                                               
+         629   SAIDA           IPMN                                            
+                                                                               
+         630   SAIDA           IQMX                                            
+                                                                               
+         631   SAIDA           IQMN                                            
+                                                                               
+         632   SAIDA           IMAX2                                           
+                                                                               
+         633   SAIDA           IPCMD2                                          
+                                                                               
+         701   LEDLAG          IQCMD  IQ0       -1.     0.     1. #TG          
+                                                                               
+         702   DELAY           IQ0    IQ0_O                                    
+                                                                               
+         703   SOMA            IQ0    DIQ0                                     
+                                                                               
+                             - IQ0_O  DIQ0                                     
+                                                                               
+         704   DIVSAO          DIQ0   IQ0R                                     
+                                                                               
+                               DELTAT IQ0R                                     
+                                                                               
+         705   LIMITA          IQ0R   IQ1P                               INFN  
+                                                                         IQRMX 
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+         706   LIMITA          IQ0R   IQ1N                               IQRMN 
+                                                                         INF   
+         707 * ENTRAD                 QGEN0                                    
+                                                                               
+         708   FUNCAO SINAL    QGEN0  QGFLG                                    
+                                                                               
+         709   SELET2          IQ1N   IQ1                                      
+                                                                               
+                               IQ1P   IQ1                                      
+                                                                               
+                               QGFLG  IQ1                                      
+                                                                               
+         710   MULTPL          IQ1    DIQ1                                     
+                                                                               
+                               DELTAT DIQ1                                     
+                                                                               
+         711   SOMA            IQ0_O  IQ2                                      
+                                                                               
+                               DIQ1   IQ2                                      
+                                                                               
+         712   MULTPL          IQ2    IAX1                                     
+                                                                               
+                               VT     IAX1                                     
+                                                                               
+         713 * ENTRAD                 VOLIM                                    
+                                                                               
+         714   SOMA            VT     IAX2                                     
+                                                                               
+                             - VOLIM  IAX2                                     
+                                                                               
+         715   GANHO           IAX2   IAX3   #KHV                              
+                                                                               
+         716   LIMITA          IAX3   IAX4                               ZERO  
+                                                                         INF   
+         717   COMPAR .GT.     VT     VGFLG                                    
+                                                                               
+                               VOLIM  VGFLG                                    
+                                                                               
+         718   SELET2          ZERO   IAX5                                     
+                                                                               
+                               IAX4   IAX5                                     
+                                                                               
+                               VGFLG  IAX5                                     
+                                                                               
+         719   SOMA            IAX1   IAX6                                     
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+                             - IAX5   IAX6                                     
+                                                                               
+         720   LIMITA          IAX6   IQ                                 IOLIM 
+                                                                         INF   
+         721   SAIDA           IQ                                              
+                                                                               
+         801   FUNCAO RAMPA    VT     VTLV   #LVPT0     0. #LVPT1     1.       
+                                                                               
+         802   LEDLAG          VT     VTFLTR     1.     0.     1. #TFLTR       
+                                                                               
+         803   FUNCAO RAMPA    VTFLTR VLVPL  #ZEROX     0. #BRKPT #LVPL1       
+                                                                               
+         804   LEDLAG          IPCMD  IP0A       1.     0.     1. #TG    INFN  
+                                                                         INF   
+         805   LEDLAG          IPCMD  IP0B       1.     0.     1. #TG    INFN  
+                                                                         VLVPL 
+         806 * ENTRAD                 LVPSW                                    
+                                                                               
+         807   SELET2          IP0A   IP0                                      
+                                                                               
+                               IP0B   IP0                                      
+                                                                               
+                               LVPSW  IP0                                      
+                                                                               
+         808   DELAY           IP0    IP0_O                                    
+                                                                               
+         809   SOMA            IP0    DIP0                                     
+                                                                               
+                             - IP0_O  DIP0                                     
+                                                                               
+         810   DIVSAO          DIP0   DIP0R                                    
+                                                                               
+                               DELTAT DIP0R                                    
+                                                                               
+         811 * ENTRAD                 RRPWRP                                   
+                                                                               
+         812   FUNCAO MENOS    RRPWRP RRPWRN                                   
+                                                                               
+         813   LIMITA          DIP0R  DIP0RL                             RRPWRN
+                                                                         RRPWRP
+         814   MULTPL          DIP0RL DIP1                                     
+                                                                               
+                               DELTAT DIP1                                     
+                                                                               
+         815   SOMA            IP0_O  IP2                                      
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+                               DIP1   IP2                                      
+                                                                               
+         816   MULTPL          IP2    IP                                       
+                                                                               
+                               VTLV   IP                                       
+                                                                               
+         817   SAIDA           IP                                              
+                                                                               
+         901   IMPORT ANGL            TET                                      
+                                                                               
+         902   FUNCAO COS      TET    CT                                       
+                                                                               
+         903   FUNCAO SIN      TET    ST                                       
+                                                                               
+         904   MULTPL          IP     ID_CT                                    
+                                                                               
+                               CT     ID_CT                                    
+                                                                               
+         905   MULTPL          IP     ID_ST                                    
+                                                                               
+                               ST     ID_ST                                    
+                                                                               
+         906   MULTPL          IQ     IQ_ST                                    
+                                                                               
+                               ST     IQ_ST                                    
+                                                                               
+         907   MULTPL          IQ     IQ_CT                                    
+                                                                               
+                               CT     IQ_CT                                    
+                                                                               
+         908   SOMA            ID_CT  IREAL                                    
+                                                                               
+                             - IQ_ST  IREAL                                    
+                                                                               
+         909   SOMA            ID_ST  IIMAG                                    
+                                                                               
+                               IQ_CT  IIMAG                                    
+                                                                               
+         910   EXPORT IIRFNT   IREAL                                           
+                                                                               
+         911   EXPORT IIIFNT   IIMAG                                           
+                                                                               
+        1001   MULTPL          IREAL  X1                                       
+                                                                               
+                               ST     X1                                       
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+        1002   DIVSAO          X1     X2                                       
+                                                                               
+                               CT     X2                                       
+                                                                               
+        1003   SOMA            IIMAG  X3                                       
+                                                                               
+                             - X2     X3                                       
+                                                                               
+        1004   FUNCAO X**2     ST     ST2                                      
+                                                                               
+        1005   FUNCAO X**2     CT     CT2                                      
+                                                                               
+        1006   SOMA            ST2    X4                                       
+                                                                               
+                               CT2    X4                                       
+                                                                               
+        1007   DIVSAO          X4     X5                                       
+                                                                               
+                               CT     X5                                       
+                                                                               
+        1008   DIVSAO          X3     IQI                                      
+                                                                               
+                               X5     IQI                                      
+                                                                               
+        1009   MULTPL          IQI    X6                                       
+                                                                               
+                               ST     X6                                       
+                                                                               
+        1010   SOMA            IREAL  X7                                       
+                                                                               
+                               X6     X7                                       
+                                                                               
+        1011   DIVSAO          X7     IPI                                      
+                                                                               
+                               CT     IPI                                      
+                                                                               
+        1012   DIVSAO          IQI    IQCMDI                                   
+                                                                               
+                               VT     IQCMDI                                   
+                                                                               
+        1013   DIVSAO          IPI    IPCMDI                                   
+                                                                               
+                               VT     IPCMDI                                   
+                                                                               
+        1014   SAIDA           IQCMDI                                          
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+        1015   SAIDA           IPCMDI                                          
+                                                                               
+               DEFVAL VAR             PPLT0  PPLT                              
+                                                                               
+               DEFVAL                 PSTEP     0.0                            
+                                                                               
+               DEFVAL VAR             FREF   FBUS                              
+                                                                               
+               DEFVAL                 INF     99999                            
+                                                                               
+               DEFVAL                 INFN   -99999                            
+                                                                               
+               DEFVAL                 ZERO      0.0                            
+                                                                               
+               DEFVAL                 FEMIN  #FEMIN                            
+                                                                               
+               DEFVAL                 FEMAX  #FEMAX                            
+                                                                               
+               DEFVAL                 PMIN   #PMIN                             
+                                                                               
+               DEFVAL                 PMAX   #PMAX                             
+                                                                               
+               DEFVAL                 FRQFG  #FRQFG                            
+                                                                               
+               DEFVAL                 VCPFG  #VCPFG                            
+                                                                               
+               DEFVAL                 REFFG  #REFFG                            
+                                                                               
+               DEFVAL VAR             VRMT0  VRMT                              
+                                                                               
+               DEFVAL                 VSTEP     0.0                            
+                                                                               
+               DEFVAL VAR             QBRCH0 QBRCH                             
+                                                                               
+               DEFVAL                 QSTEP     0.0                            
+                                                                               
+               DEFVAL                 EMIN   #EMIN                             
+                                                                               
+               DEFVAL                 EMAX   #EMAX                             
+                                                                               
+               DEFVAL                 QMIN   #QMIN                             
+                                                                               
+               DEFVAL                 QMAX   #QMAX                             
+                                                                               
+               DEFVAL                 SOCMX  #SOCMX                            
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+               DEFVAL                 SOCMN  #SOCMN                            
+                                                                               
+               DEFVAL                 RESET     0.0                            
+                                                                               
+               DEFVAL                 VINIC  #SOC0                             
+                                                                               
+               DEFVAL                 SOCX   #SOC0                             
+                                                                               
+               DEFVAL                 DPMX   #DPMX                             
+                                                                               
+               DEFVAL                 DPMN   #DPMN                             
+                                                                               
+               DEFVAL                 PMX    #PMX                              
+                                                                               
+               DEFVAL                 PMN    #PMN                              
+                                                                               
+               DEFVAL                 VTMIN    0.01                            
+                                                                               
+               DEFVAL                 VREF0  #VREF0                            
+                                                                               
+               DEFVAL                 VREF1  #VREF1                            
+                                                                               
+               DEFVAL                 IQH1   #IQH1                             
+                                                                               
+               DEFVAL                 IQL1   #IQL1                             
+                                                                               
+               DEFVAL                 DZERO  0.0001                            
+                                                                               
+               DEFVAL                 PFFLG  #PFFLG                            
+                                                                               
+               DEFVAL                 QMX    #QMX                              
+                                                                               
+               DEFVAL                 QMN    #QMN                              
+                                                                               
+               DEFVAL                 VMX    #VMX                              
+                                                                               
+               DEFVAL                 VMN    #VMN                              
+                                                                               
+               DEFVAL                 VFLG   #VFLG                             
+                                                                               
+               DEFVAL                 QFLG   #QFLG                             
+                                                                               
+               DEFVAL                 IMAX   #IMAX                             
+                                                                               
+               DEFVAL                 PQFLG  #PQFLG                            
+                                                                               
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CONTROLADORES DEFINIDOS PELO USUARIO
+
+ X-----X--------------------X---------------X---------------------------X------X
+   CDU           BLOCO           VARIAVEL            PARAMETROS           LMIN
+   NUM   NUM I  TIPO  SUBTIP S ENTRAD  SAIDA   P1     P2     P3     P4    LMAX
+ X-----X----X-X------X------X-X------X------X------X------X------X------X------X
+
+      9    WECC_BESS
+
+               DEFVAL                 IQRMX  #IQRMX                            
+                                                                               
+               DEFVAL                 IQRMN  #IQRMN                            
+                                                                               
+               DEFVAL VAR             QGEN0  QGEN                              
+                                                                               
+               DEFVAL                 VOLIM  #VOLIM                            
+                                                                               
+               DEFVAL                 IOLIM  #IOLIM                            
+                                                                               
+               DEFVAL                 LVPSW  #LVPSW                            
+                                                                               
+               DEFVAL                 RRPWRP #RRPWR                            
+                                                                               
+               DEFVAL VAR             IPCMD  IPCMDI                            
+                                                                               
+               DEFVAL VAR             IQCMD  IQCMDI                            
+                                                                               
+               DEFVAL                 PCFG   #PCFG                             
+                                                                               
+ ...............................................................................
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+
+ X-------X---------X-------------------------------X
+  UNIDADE    NOME           IDENTIFICACAO
+   LOGICA   LOGICO            DO ARQUIVO
+ X-------X---------X-------------------------------X
+
+      1   TEM$DADOS CONIN$
+      2   TEM$SAVCA REDE\FRACA-SEM_MEDIA.SAV
+      3   TEM$MODEL MODELOS\SIS14B.BLT
+      4   TEM$PRINT SAIDAS\FRACA-SEM_MEDIA_R0.OUT
+      5   TEM$INPUT CONIN$
+      6   TEM$VIDEO CONOUT$
+      7   TEM$PUNCH NUL
+      8   TEM$PLOTA PLOT\FRACA-SEM_MEDIA_R1.PLT
+      9   TEM$LOG   SAIDAS\FRACA-SEM_MEDIA_R0.LOG
+     10   TEM$SNAPS NUL
+     11   TEM$ARQSN NUL
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE MODELO 1 DE GERADOR - CLASSICO
+
+ X----X-----X-----X-----X-----X-----X--X-X
+  MOD   L'd    Ra    H     D    MVA  Fr C
+ X----X-----X-----X-----X-----X-----X--X-X
+
+  0101                               60   FONTE IDEAL
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE MODELO 2 DE GERADOR - POLOS SALIENTES
+
+ X----X----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-X
+   MOD  SAT   Ld   L'd   L"d    Ll   T'do  T"do   Ra    H    MVA  C
+              Lq                           T"qo         D    Freq
+ X----X----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-X
+
+  0201    1 100.3  35.7  28.3  19.8  7.28  .050       2.474   50. N
+             59.9                          .100               60
+  0202    2  94.6  31.0  27.4  20.2  8.13  .048       3.588   72. N
+             62.1                          .140               60
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DO MODELO 1 DE REGULADOR DE TENSAO
+
+ X----X----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-X-X
+   MOD  SAT   Ka    Ke    Kf    Tm    Ta    Te    Tf   Lmin  Lmax L S
+ X----X----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-X-X
+
+  0101   31  300.  3.00  0.30   0.0   0.0  6.00  3.00  -1.1  8.05 E D
+  0102   32  408.  1.00 .1046   0.0   0.0  1.00  3.17  -1.1  8.05 E I
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DO MODELO 12 DE REGULADOR DE TENSAO
+
+ X----X----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-X
+   MOD  SAT   Ka    Ke    Kf    Kp    Kg    Tq   Tf2  Lmin1 Lmin2 Lmin3 L
+              Ta    Te   Tf1    Ki                    Lmax1 Lmax2 Lmax3
+ X----X----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-X
+
+  1201   33  25.0  -.05  .080    .0   1.0    .0    .0  -1.0  -4.6    .0 D
+              .20   .50   1.0   1.0                     1.0   4.6    .0
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE CURVA DE SATURACAO
+
+ X----X-X--------X--------X--------X
+   MOD T    P1       P2       P3
+ X----X-X--------X--------X--------X
+
+  0001 2    0.016    8.198      0.8
+  0002 2    0.013     7.92      0.8
+  0031 2   0.0147    1.206         
+  0032 2    0.024     1.36         
+  0033 2    0.016     1.54         
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DO MODELO 1 DE REGULADOR DE VELOCIDADE
+
+ X----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-----X
+   MOD   R     Rp    At   Qnl    Tw    Tr    Tf    Tg   Lmin  Lmax Dturb  Pbg
+                                                                     D    Pbt
+ X----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-----X-----X
+
+  0101  0.05  0.38 1.200  0.15   1.5   7.0  0.05   0.5   0.0  .984   0.5   1.0
+                                                                     1.0   1.0
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE MAQUINA SINCRONA
+
+ X------------------X--X-----X---X------X-------X-------X-------X-----X-----X
+       Barra         No Pg(%)  No   Maq     Exc     Vel     Est   Reat Barra
+    Num     Nome     Gr Qg(%)  Un   Mod    Mod T   Mod T   Mod T  Xvd  Contr
+ X-----X------------X--X-----X---X------X-------X-------X-------X-----X-----X
+
+      1 BARRAINF (1) 10  100   1     101                                   1
+                         100
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE LOCALIZACAO REMOTA DE SINAIS
+
+ X-----------X---------------------X--X----X-----------------------------X
+    Sinal          Elemento    Num  No             Identificacao
+  Num   Tipo     Num  Para Nc  Extr Gr Bloc    Nome 1    M    Nome 2    M
+ X----X------X------X-----X--X-----X--X----X------------X-X------------X-X
+
+     1 BARRAC      4                        BARRAGER (6)                 
+     2 CIRCAC      4     3  1     4         BARRAGER (6) * BARRA5   (5)  
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE FONTES SHUNT CONTROLADAS
+
+ X------------------X--X---X-----X-----X---X--------X-----------------X
+       Barra         No TIP  FATP  FATQ  No  FONTE    IMP./ADM.  Sbase
+    Num     Nome     Gr      (%)   (%)   Un   Mod  T   VALOR  T  (MVA)
+                                                       VALOR  T
+ X-----X------------X--X---X-----X-----X---X------X-X--------X-X------X
+
+      4 BARRAGER (6) 10 COR  100.  100.   1      9 U          G     6.
+                                                              B
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE EVENTOS
+
+ X-------------X---------------X-----X------X--X---X----X-------X--------------X
+      Evento        Elemento             %   Gr Und  Blk  Resist     Nome 1
+  Tipo   Tempo    Tip            Num    ABS     Uni       Reatan     Nome 2   D
+                  Num   Para Nc  Extr            C        Suscep
+                                                Unf       Defas.
+ X----X--------X------X-----X--X-----X------X--X---X----X-------X------------X-X
+
+  TCDU      1.0 CDU                                  116            WECC_BESS  
+                     9                  0.15                     QSTEP         
+                                                                
+                                                                
+  TCDU     21.0 CDU                                  116            WECC_BESS  
+                     9                  0.65                     QSTEP         
+                                                                
+                                                                
+  TCDU     41.0 CDU                                  116            WECC_BESS  
+                     9                   1.0                     QSTEP         
+                                                                
+                                                                
+  TCDU     61.0 CDU                                  116            WECC_BESS  
+                     9                 -2.95                     QSTEP         
+                                                                
+                                                                
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE SIMULACAO
+
+ X---------X----------X------------------X
+    Tempo    Intervalo  Frequencia pontos
+  simulacao integracao plotagem impressao
+ X---------X----------X--------X---------X
+
+      80.0      .004         5         1
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE PLOTAGEM
+
+ X-------X----------------------X--------X-----X-----X-------------------------X
+                 Elemento         Refer    Num  Bloco       Identificacao
+  Tipo  M Tip   Num   Para Nc Gr Barra Gr  Extr P
+ X-------X---X------X-----X--X--X-----X--X-----X-----X------------X------------X
+
+  PELE    Ger      1          10                      BARRAINF (1)             
+  VOLT    Bar      2                                  BARRA2   (2)             
+  FREQ  * Bar      4                                  BARRAGER (6)             
+  FREQ    Bar      4                                  BARRAGER (6)             
+  PTFNT   Fnt    004          10                      BARRAGER (6)             
+  QTFNT   Fnt    004          10                      BARRAGER (6)             
+  VOLT    Bar      4                                  BARRAGER (6)             
+  CDU     CDU     09                              127    WECC_BESS RFFLG0      
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+
+
+ Tempo de CPU da simulacao: 00:00:00.00
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ RELATORIO DE CONTROLADOR DEFINIDO PELO USUARIO - TEMPO =      0.0  SEG
+
+ X-------------------X-------------X---------------------X-------------------X
+     CONTROLADOR          BLOCO      VARIAVEL DE ENTRADA   VARIAVEL DE SAIDA
+    NUM      NOME      NUM I  TIPO  S  NOME     VALOR      NOME     VALOR
+ X------X------------X----X-X------X-X------X------------X------X------------X
+       9    WECC_BESS
+                         1   IMPORT                       PPLT    0.10000E-15
+                         2 * ENTRAD                       PPLT0   0.10000E-15
+                         3 * IMPORT                       PFNT0   0.00000E+00
+                         4   ENTRAD                       PSTEP   0.00000E+00
+                         5   SOMA     PFNT0   0.00000E+00 PFNTRF  0.00000E+00
+                                      PSTEP   0.00000E+00
+                         6   LEDLAG   PPLT    0.10000E-15 PPLT_F  0.10000E-15
+                         7   IMPORT                       FBUS    0.10000E+01
+                         8   ENTRAD                       FREF    0.10000E+01
+                         9   SOMA     FREF    0.10000E+01 DFREF   0.00000E+00
+                                    - FBUS    0.10000E+01
+                        10   FUNCAO   DFREF   0.00000E+00 DFDBD0  0.00000E+00
+                        11   MULTPL   DFDBD0  0.00000E+00 DFDBD   0.00000E+00
+                                      DFREF   0.00000E+00
+                        12   GANHO    DFDBD   0.00000E+00 DFDN0   0.00000E+00
+                        13   LIMITA   DFDN0   0.00000E+00 DFDN    0.00000E+00
+                                      INFN   -0.99999E+05
+                                      ZERO    0.00000E+00
+                        14   GANHO    DFDBD   0.00000E+00 DFUP0   0.00000E+00
+                        15   LIMITA   DFUP0   0.00000E+00 DFUP    0.00000E+00
+                                      ZERO    0.00000E+00
+                                      INF     0.99999E+05
+                        16   SOMA     DFDN    0.00000E+00 PDF     0.00000E+00
+                                      DFUP    0.00000E+00
+                        17   DELAY    FBUS    0.10000E+01 FBUS0   0.10000E+01
+                        18   SOMA     FBUS0   0.10000E+01 DF      0.00000E+00
+                                    - FBUS    0.10000E+01
+                        19 * IMPORT                       DELTAT  0.40000E-02
+                        20   DIVSAO   DF      0.00000E+00 DFDT0   0.00000E+00
+                                      DELTAT  0.40000E-02
+                        21   LEDLAG   DFDT0   0.00000E+00 DFDT_F  0.00000E+00
+                        22   FUNCAO   DFDT_F  0.00000E+00 DFDTDB  0.00000E+00
+                        23   MULTPL   DFDTDB  0.00000E+00 DFDT1   0.00000E+00
+                                      DFDT_F  0.00000E+00
+                        24   GANHO    DFDT1   0.00000E+00 PRCF    0.00000E+00
+                        25 * ENTRAD                       PCFG    0.00000E+00
+                        26   SELET2   ZERO    0.00000E+00 PPLTRF  0.00000E+00
+                                      PPLT_F  0.10000E-15
+                                      PCFG    0.00000E+00
+                        27   SOMA     PPLT0   0.10000E-15 PREF0   0.10000E-15
+                                    - PPLTRF  0.00000E+00
+                                      PFNTRF  0.00000E+00
+                                      PDF     0.00000E+00
+                                      PRCF    0.00000E+00
+                        28   LIMITA   PREF0   0.10000E-15 PREF1   0.10000E-15
+                                      FEMIN  -0.99000E+02
+                                      FEMAX   0.99000E+02
+                        29   LEDLAG   PREF1   0.10000E-15 PREF2   0.10000E-15
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ RELATORIO DE CONTROLADOR DEFINIDO PELO USUARIO - TEMPO =      0.0  SEG
+
+ X-------------------X-------------X---------------------X-------------------X
+     CONTROLADOR          BLOCO      VARIAVEL DE ENTRADA   VARIAVEL DE SAIDA
+    NUM      NOME      NUM I  TIPO  S  NOME     VALOR      NOME     VALOR
+ X------X------------X----X-X------X-X------X------------X------X------------X
+       9    WECC_BESS
+                        30   LIMITA   PREF2   0.10000E-15 PREF3   0.10000E-15
+                                      PMIN   -0.66700E+00
+                                      PMAX    0.10000E+01
+                        31   LEDLAG   PREF3   0.10000E-15 PREF4   0.10000E-15
+                        32 * ENTRAD                       FRQFG   0.10000E+01
+                        33   SELET2   PFNT0   0.00000E+00 PREF    0.10000E-15
+                                      PREF4   0.10000E-15
+                                      FRQFG   0.10000E+01
+                        34   SAIDA    PREF    0.10000E-15
+                       101   IMPORT                       IBRCH   0.00000E+00
+                       102   IMPORT                       VRMT    0.10000E+01
+                       103   GANHO    IBRCH   0.00000E+00 VDROP   0.00000E+00
+                       104   IMPORT                       QBRCH  -0.10000E-15
+                       105   GANHO    QBRCH  -0.10000E-15 V_Q0    0.50000E-16
+                       106   SOMA     VRMT    0.10000E+01 V_Q     0.10000E+01
+                                      V_Q0    0.50000E-16
+                       107 * ENTRAD                       VCPFG   0.00000E+00
+                       108   SELET2   V_Q     0.10000E+01 VCTRL   0.10000E+01
+                                      VDROP   0.00000E+00
+                                      VCPFG   0.00000E+00
+                       109   LEDLAG   VCTRL   0.10000E+01 VCTRLF  0.10000E+01
+                       110 * ENTRAD                       VRMT0   0.10000E+01
+                       111   ENTRAD                       VSTEP   0.00000E+00
+                       112   SOMA     VRMT0   0.10000E+01 VRMTRF  0.10000E+01
+                                      VSTEP   0.00000E+00
+                       113   SOMA     VRMTRF  0.10000E+01 RFFLG1  0.00000E+00
+                                    - VCTRLF  0.10000E+01
+                       114   LEDLAG   QBRCH  -0.10000E-15 QBRCHF -0.10000E-15
+                       115 * ENTRAD                       QBRCH0 -0.10000E-15
+                       116   ENTRAD                       QSTEP   0.00000E+00
+                       117   SOMA     QBRCH0 -0.10000E-15 QBCHRF -0.10000E-15
+                                      QSTEP   0.00000E+00
+                       118   SOMA     QBCHRF -0.10000E-15 RFFLG0  0.00000E+00
+                                    - QBRCHF -0.10000E-15
+                       119 * ENTRAD                       REFFG   0.00000E+00
+                       120   SELET2   RFFLG0  0.00000E+00 QREF1   0.00000E+00
+                                      RFFLG1  0.00000E+00
+                                      REFFG   0.00000E+00
+                       121   FUNCAO   QREF1   0.00000E+00 QREFDB  0.00000E+00
+                       122   MULTPL   QREFDB  0.00000E+00 QREF2   0.00000E+00
+                                      QREF1   0.00000E+00
+                       123   LIMITA   QREF2   0.00000E+00 QREF3   0.00000E+00
+                                      EMIN   -0.10000E+01
+                                      EMAX    0.10000E+01
+                       124   LEDLAG   QREF3   0.00000E+00 QREF4   0.00000E+00
+                       125   LIMITA   QREF4   0.00000E+00 QREF5   0.00000E+00
+                                      QMIN   -0.50000E+00
+                                      QMAX    0.50000E+00
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ RELATORIO DE CONTROLADOR DEFINIDO PELO USUARIO - TEMPO =      0.0  SEG
+
+ X-------------------X-------------X---------------------X-------------------X
+     CONTROLADOR          BLOCO      VARIAVEL DE ENTRADA   VARIAVEL DE SAIDA
+    NUM      NOME      NUM I  TIPO  S  NOME     VALOR      NOME     VALOR
+ X------X------------X----X-X------X-X------X------------X------X------------X
+       9    WECC_BESS
+                       126   LEDLAG   QREF5   0.00000E+00 QREF    0.00000E+00
+                       127   SAIDA    RFFLG0  0.00000E+00
+                       201   ENTRAD                       RESET   0.00000E+00
+                       202   ENTRAD                       VINIC   0.50000E+00
+                       203   IMPORT                       PGEN    0.00000E+00
+                       204   FUNCAO   PGEN    0.00000E+00 PGENN   0.00000E+00
+                       205   INTRES   PGENN   0.00000E+00 SOCX    0.50000E+00
+                                      RESET   0.00000E+00
+                                      VINIC   0.50000E+00
+                       206   LIMITA   SOCX    0.50000E+00 SOC     0.50000E+00
+                                      SOCMN   0.20000E+00
+                                      SOCMX   0.80000E+00
+                       207   SAIDA    SOC     0.50000E+00
+                       301   DELAY    PREF    0.10000E-15 PREF_O  0.10000E-15
+                       302   SOMA     PREF    0.10000E-15 DPREF   0.00000E+00
+                                    - PREF_O  0.10000E-15
+                       303   DIVSAO   DPREF   0.00000E+00 DPRFDT  0.00000E+00
+                                      DELTAT  0.40000E-02
+                       304   LIMITA   DPRFDT  0.00000E+00 DPRFT1 -0.25000E-13
+                                      DPMN   -0.99000E+02
+                                      DPMX    0.99000E+02
+                       305   MULTPL   DPRFT1 -0.25000E-13 DPREF1 -0.10000E-15
+                                      DELTAT  0.40000E-02
+                       306   SOMA     PREF_O  0.10000E-15 PREF_N  0.00000E+00
+                                      DPREF1 -0.10000E-15
+                       307   LEDLAG   PREF_N  0.00000E+00 PORD    0.00000E+00
+                                      PMN    -0.66700E+00
+                                      PMX     0.10000E+01
+                       308   LIMITA   VTFLT   0.10000E+01 VTFLTL  0.10000E+01
+                                      VTMIN   0.10000E-01
+                                      INF     0.99999E+05
+                       309   DIVSAO   PORD    0.00000E+00 IPCMD0  0.00000E+00
+                                      VTFLTL  0.10000E+01
+                       310   LIMITA   IPCMD0  0.00000E+00 IPCMD   0.00000E+00
+                                      IPMN   -0.11104E+01
+                                      IPMX    0.11104E+01
+                       311   SAIDA    IPCMD   0.00000E+00
+                       401   IMPORT                       VT      0.10000E+01
+                       402   LEDLAG   VT      0.10000E+01 VTFLT   0.10000E+01
+                       403 * ENTRAD                       VREF0   0.10000E+01
+                       404   SOMA     VREF0   0.10000E+01 VINJ    0.00000E+00
+                                    - VTFLT   0.10000E+01
+                       405   FUNCAO   VINJ    0.00000E+00 VINJDB  0.00000E+00
+                       406   MULTPL   VINJDB  0.00000E+00 VERR    0.00000E+00
+                                      VINJ    0.00000E+00
+                       407   GANHO    VERR    0.00000E+00 IQV     0.00000E+00
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ RELATORIO DE CONTROLADOR DEFINIDO PELO USUARIO - TEMPO =      0.0  SEG
+
+ X-------------------X-------------X---------------------X-------------------X
+     CONTROLADOR          BLOCO      VARIAVEL DE ENTRADA   VARIAVEL DE SAIDA
+    NUM      NOME      NUM I  TIPO  S  NOME     VALOR      NOME     VALOR
+ X------X------------X----X-X------X-X------X------------X------X------------X
+       9    WECC_BESS
+                       408   LIMITA   IQV     0.00000E+00 IQINJ   0.00000E+00
+                                      IQL1   -0.75000E+00
+                                      IQH1    0.75000E+00
+                       409   SAIDA    IQINJ   0.00000E+00
+                       501   IMPORT                       QGEN    0.00000E+00
+                       502   LEDLAG   PGEN    0.00000E+00 PEL     0.00000E+00
+                       503   LIMITA   PGEN    0.00000E+00 PGENL   0.10000E-03
+                                      DZERO   0.10000E-03
+                                      INF     0.99999E+05
+                       504 * DIVSAO   QGEN    0.00000E+00 TGPHI   0.00000E+00
+                                      PGENL   0.10000E-03
+                       505   MULTPL   TGPHI   0.00000E+00 QPFREF  0.00000E+00
+                                      PEL     0.00000E+00
+                       506 * ENTRAD                       PFFLG   0.00000E+00
+                       507   SELET2   QREF    0.00000E+00 QENT    0.00000E+00
+                                      QPFREF  0.00000E+00
+                                      PFFLG   0.00000E+00
+                       508   LIMITA   QENT    0.00000E+00 QENTL   0.00000E+00
+                                      QMN    -0.75000E+00
+                                      QMX     0.75000E+00
+                       509   SOMA     QENTL   0.00000E+00 W1      0.00000E+00
+                                    - QGEN    0.00000E+00
+                       510   LEDLAG   W1      0.00000E+00 W2      0.00000E+00
+                       511   LIMITA   W2      0.00000E+00 VFLG1   0.90000E+00
+                                      VMN     0.90000E+00
+                                      VMX     0.11000E+01
+                       512   SAIDA    VFLG1   0.90000E+00
+                       513 * ENTRAD                       VREF1   0.10000E+01
+                       514   SOMA     QENT    0.00000E+00 VFLG0   0.10000E+01
+                                      VREF1   0.10000E+01
+                       515 * ENTRAD                       VFLG    0.00000E+00
+                       516   SELET2   VFLG0   0.10000E+01 W3      0.10000E+01
+                                      VFLG1   0.90000E+00
+                                      VFLG    0.00000E+00
+                       517   LIMITA   W3      0.10000E+01 W3L     0.10000E+01
+                                      VMN     0.90000E+00
+                                      VMX     0.11000E+01
+                       518   SOMA     W3L     0.10000E+01 W4      0.00000E+00
+                                    - VTFLT   0.10000E+01
+                       519   LEDLAG   W4      0.00000E+00 W5      0.00000E+00
+                       520   LIMITA   W5      0.00000E+00 QFLG1   0.00000E+00
+                                      IQMN   -0.75040E+00
+                                      IQMX    0.75040E+00
+                       521   DIVSAO   QENT    0.00000E+00 W6      0.00000E+00
+                                      VTFLTL  0.10000E+01
+                       522   LEDLAG   W6      0.00000E+00 QFLG0   0.00000E+00
+                       523 * ENTRAD                       QFLG    0.00000E+00
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ RELATORIO DE CONTROLADOR DEFINIDO PELO USUARIO - TEMPO =      0.0  SEG
+
+ X-------------------X-------------X---------------------X-------------------X
+     CONTROLADOR          BLOCO      VARIAVEL DE ENTRADA   VARIAVEL DE SAIDA
+    NUM      NOME      NUM I  TIPO  S  NOME     VALOR      NOME     VALOR
+ X------X------------X----X-X------X-X------X------------X------X------------X
+       9    WECC_BESS
+                       524   SELET2   QFLG0   0.00000E+00 IQCMD0  0.00000E+00
+                                      QFLG1   0.00000E+00
+                                      QFLG    0.00000E+00
+                       525   SOMA     IQCMD0  0.00000E+00 IQCMD1  0.00000E+00
+                                      IQINJ   0.00000E+00
+                       526   LIMITA   IQCMD1  0.00000E+00 IQCMD   0.00000E+00
+                                      IQMN   -0.75040E+00
+                                      IQMX    0.75040E+00
+                       527   SAIDA    IQCMD   0.00000E+00
+                       601   FUNCAO   VTFLT   0.10000E+01 VDL1    0.75040E+00
+                       602   FUNCAO   VTFLT   0.10000E+01 VDL2    0.11104E+01
+                       603 * ENTRAD                       IMAX    0.21100E+01
+                       604   FUNCAO   IMAX    0.21100E+01 IMAX2   0.44521E+01
+                       605   FUNCAO   IPCMD   0.00000E+00 IPCMD2  0.00000E+00
+                       606   FUNCAO   IQCMD   0.00000E+00 IQCMD2  0.00000E+00
+                       607   MIN      VDL1    0.75040E+00 IQMX0   0.75040E+00
+                                      IMAX    0.21100E+01
+                       609   SOMA     IMAX2   0.44521E+01 VAX0    0.44521E+01
+                                    - IQCMD2  0.00000E+00
+                       610   FUNCAO   VAX0    0.44521E+01 VAX1    0.21100E+01
+                       611   MIN      VDL2    0.11104E+01 IPMX0   0.11104E+01
+                                      VAX1    0.21100E+01
+                       612   SOMA     IMAX2   0.44521E+01 VAX2    0.44521E+01
+                                    - IPCMD2  0.00000E+00
+                       613   FUNCAO   VAX2    0.44521E+01 VAX3    0.21100E+01
+                       614   MIN      VDL1    0.75040E+00 IQMX1   0.75040E+00
+                                      VAX3    0.21100E+01
+                       615   MIN      VDL2    0.11104E+01 IPMX1   0.11104E+01
+                                      IMAX    0.21100E+01
+                       616 * ENTRAD                       PQFLG   0.00000E+00
+                       617   SELET2   IQMX0   0.75040E+00 IQMX    0.75040E+00
+                                      IQMX1   0.75040E+00
+                                      PQFLG   0.00000E+00
+                       618   SELET2   IPMX0   0.11104E+01 IPMX2   0.11104E+01
+                                      IPMX1   0.11104E+01
+                                      PQFLG   0.00000E+00
+                       619   FUNCAO   IQMX    0.75040E+00 IQMN   -0.75040E+00
+                       620   FUNCAO   IPMX2   0.11104E+01 IPMN2  -0.11104E+01
+                       621 * ENTRAD                       SOCMX   0.80000E+00
+                       622 * ENTRAD                       SOCMN   0.20000E+00
+                       623   COMPAR   SOC     0.50000E+00 SOCCT1  0.10000E+01
+                                      SOCMX   0.80000E+00
+                       624   COMPAR   SOC     0.50000E+00 SOCCT2  0.10000E+01
+                                      SOCMN   0.20000E+00
+                       625 * ENTRAD                       ZERO    0.00000E+00
+                       626   SELET2   ZERO    0.00000E+00 IPMN   -0.11104E+01
+                                      IPMN2  -0.11104E+01
+                                      SOCCT1  0.10000E+01
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ RELATORIO DE CONTROLADOR DEFINIDO PELO USUARIO - TEMPO =      0.0  SEG
+
+ X-------------------X-------------X---------------------X-------------------X
+     CONTROLADOR          BLOCO      VARIAVEL DE ENTRADA   VARIAVEL DE SAIDA
+    NUM      NOME      NUM I  TIPO  S  NOME     VALOR      NOME     VALOR
+ X------X------------X----X-X------X-X------X------------X------X------------X
+       9    WECC_BESS
+                       627   SELET2   ZERO    0.00000E+00 IPMX    0.11104E+01
+                                      IPMX2   0.11104E+01
+                                      SOCCT2  0.10000E+01
+                       628   SAIDA    IPMX    0.11104E+01
+                       629   SAIDA    IPMN   -0.11104E+01
+                       630   SAIDA    IQMX    0.75040E+00
+                       631   SAIDA    IQMN   -0.75040E+00
+                       632   SAIDA    IMAX2   0.44521E+01
+                       633   SAIDA    IPCMD2  0.00000E+00
+                       701   LEDLAG   IQCMD   0.00000E+00 IQ0     0.00000E+00
+                       702   DELAY    IQ0     0.00000E+00 IQ0_O   0.00000E+00
+                       703   SOMA     IQ0     0.00000E+00 DIQ0    0.00000E+00
+                                    - IQ0_O   0.00000E+00
+                       704   DIVSAO   DIQ0    0.00000E+00 IQ0R    0.00000E+00
+                                      DELTAT  0.40000E-02
+                       705   LIMITA   IQ0R    0.00000E+00 IQ1P    0.00000E+00
+                                      INFN   -0.99999E+05
+                                      IQRMX   0.99000E+02
+                       706   LIMITA   IQ0R    0.00000E+00 IQ1N    0.00000E+00
+                                      IQRMN  -0.99000E+02
+                                      INF     0.99999E+05
+                       707 * ENTRAD                       QGEN0   0.00000E+00
+                       708   FUNCAO   QGEN0   0.00000E+00 QGFLG   0.00000E+00
+                       709   SELET2   IQ1N    0.00000E+00 IQ1     0.00000E+00
+                                      IQ1P    0.00000E+00
+                                      QGFLG   0.00000E+00
+                       710   MULTPL   IQ1     0.00000E+00 DIQ1    0.00000E+00
+                                      DELTAT  0.40000E-02
+                       711   SOMA     IQ0_O   0.00000E+00 IQ2     0.00000E+00
+                                      DIQ1    0.00000E+00
+                       712   MULTPL   IQ2     0.00000E+00 IAX1    0.00000E+00
+                                      VT      0.10000E+01
+                       713 * ENTRAD                       VOLIM   0.12000E+01
+                       714   SOMA     VT      0.10000E+01 IAX2   -0.20000E+00
+                                    - VOLIM   0.12000E+01
+                       715   GANHO    IAX2   -0.20000E+00 IAX3   -0.14000E+00
+                       716   LIMITA   IAX3   -0.14000E+00 IAX4    0.00000E+00
+                                      ZERO    0.00000E+00
+                                      INF     0.99999E+05
+                       717   COMPAR   VT      0.10000E+01 VGFLG   0.00000E+00
+                                      VOLIM   0.12000E+01
+                       718   SELET2   ZERO    0.00000E+00 IAX5    0.00000E+00
+                                      IAX4    0.00000E+00
+                                      VGFLG   0.00000E+00
+                       719   SOMA     IAX1    0.00000E+00 IAX6    0.00000E+00
+                                    - IAX5    0.00000E+00
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ RELATORIO DE CONTROLADOR DEFINIDO PELO USUARIO - TEMPO =      0.0  SEG
+
+ X-------------------X-------------X---------------------X-------------------X
+     CONTROLADOR          BLOCO      VARIAVEL DE ENTRADA   VARIAVEL DE SAIDA
+    NUM      NOME      NUM I  TIPO  S  NOME     VALOR      NOME     VALOR
+ X------X------------X----X-X------X-X------X------------X------X------------X
+       9    WECC_BESS
+                       720   LIMITA   IAX6    0.00000E+00 IQ      0.00000E+00
+                                      IOLIM  -0.13000E+01
+                                      INF     0.99999E+05
+                       721   SAIDA    IQ      0.00000E+00
+                       801   FUNCAO   VT      0.10000E+01 VTLV    0.10000E+01
+                       802   LEDLAG   VT      0.10000E+01 VTFLTR  0.10000E+01
+                       803   FUNCAO   VTFLTR  0.10000E+01 VLVPL   0.12200E+01
+                       804   LEDLAG   IPCMD   0.00000E+00 IP0A    0.00000E+00
+                                      INFN   -0.99999E+05
+                                      INF     0.99999E+05
+                       805   LEDLAG   IPCMD   0.00000E+00 IP0B    0.00000E+00
+                                      INFN   -0.99999E+05
+                                      VLVPL   0.12200E+01
+                       806 * ENTRAD                       LVPSW   0.10000E+01
+                       807   SELET2   IP0A    0.00000E+00 IP0     0.00000E+00
+                                      IP0B    0.00000E+00
+                                      LVPSW   0.10000E+01
+                       808   DELAY    IP0     0.00000E+00 IP0_O   0.00000E+00
+                       809   SOMA     IP0     0.00000E+00 DIP0    0.00000E+00
+                                    - IP0_O   0.00000E+00
+                       810   DIVSAO   DIP0    0.00000E+00 DIP0R   0.00000E+00
+                                      DELTAT  0.40000E-02
+                       811 * ENTRAD                       RRPWRP  0.10000E+02
+                       812   FUNCAO   RRPWRP  0.10000E+02 RRPWRN -0.10000E+02
+                       813   LIMITA   DIP0R   0.00000E+00 DIP0RL  0.00000E+00
+                                      RRPWRN -0.10000E+02
+                                      RRPWRP  0.10000E+02
+                       814   MULTPL   DIP0RL  0.00000E+00 DIP1    0.00000E+00
+                                      DELTAT  0.40000E-02
+                       815   SOMA     IP0_O   0.00000E+00 IP2     0.00000E+00
+                                      DIP1    0.00000E+00
+                       816   MULTPL   IP2     0.00000E+00 IP      0.00000E+00
+                                      VTLV    0.10000E+01
+                       817   SAIDA    IP      0.00000E+00
+                       901   IMPORT                       TET     0.00000E+00
+                       902   FUNCAO   TET     0.00000E+00 CT      0.10000E+01
+                       903   FUNCAO   TET     0.00000E+00 ST      0.00000E+00
+                       904   MULTPL   IP      0.00000E+00 ID_CT   0.00000E+00
+                                      CT      0.10000E+01
+                       905   MULTPL   IP      0.00000E+00 ID_ST   0.00000E+00
+                                      ST      0.00000E+00
+                       906   MULTPL   IQ      0.00000E+00 IQ_ST   0.00000E+00
+                                      ST      0.00000E+00
+                       907   MULTPL   IQ      0.00000E+00 IQ_CT   0.00000E+00
+                                      CT      0.10000E+01
+                       908   SOMA     ID_CT   0.00000E+00 IREAL   0.00000E+00
+                                    - IQ_ST   0.00000E+00
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ RELATORIO DE CONTROLADOR DEFINIDO PELO USUARIO - TEMPO =      0.0  SEG
+
+ X-------------------X-------------X---------------------X-------------------X
+     CONTROLADOR          BLOCO      VARIAVEL DE ENTRADA   VARIAVEL DE SAIDA
+    NUM      NOME      NUM I  TIPO  S  NOME     VALOR      NOME     VALOR
+ X------X------------X----X-X------X-X------X------------X------X------------X
+       9    WECC_BESS
+                       909   SOMA     ID_ST   0.00000E+00 IIMAG   0.00000E+00
+                                      IQ_CT   0.00000E+00
+                       910   EXPORT   IREAL   0.00000E+00
+                       911   EXPORT   IIMAG   0.00000E+00
+                      1001   MULTPL   IREAL   0.00000E+00 X1      0.00000E+00
+                                      ST      0.00000E+00
+                      1002   DIVSAO   X1      0.00000E+00 X2      0.00000E+00
+                                      CT      0.10000E+01
+                      1003   SOMA     IIMAG   0.00000E+00 X3      0.00000E+00
+                                    - X2      0.00000E+00
+                      1004   FUNCAO   ST      0.00000E+00 ST2     0.00000E+00
+                      1005   FUNCAO   CT      0.10000E+01 CT2     0.10000E+01
+                      1006   SOMA     ST2     0.00000E+00 X4      0.10000E+01
+                                      CT2     0.10000E+01
+                      1007   DIVSAO   X4      0.10000E+01 X5      0.10000E+01
+                                      CT      0.10000E+01
+                      1008   DIVSAO   X3      0.00000E+00 IQI     0.00000E+00
+                                      X5      0.10000E+01
+                      1009   MULTPL   IQI     0.00000E+00 X6      0.00000E+00
+                                      ST      0.00000E+00
+                      1010   SOMA     IREAL   0.00000E+00 X7      0.00000E+00
+                                      X6      0.00000E+00
+                      1011   DIVSAO   X7      0.00000E+00 IPI     0.00000E+00
+                                      CT      0.10000E+01
+                      1012   DIVSAO   IQI     0.00000E+00 IQCMDI  0.00000E+00
+                                      VT      0.10000E+01
+                      1013   DIVSAO   IPI     0.00000E+00 IPCMDI  0.00000E+00
+                                      VT      0.10000E+01
+                      1014   SAIDA    IQCMDI  0.00000E+00
+                      1015   SAIDA    IPCMDI  0.00000E+00
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ T=  1.0000s TCDU - Variacao de  0.00% + absoluta de  0.150 na
+                    variavel QSTEP  - CDU      9    WECC_BESS
+
+ T= 21.0000s TCDU - Variacao de  0.00% + absoluta de  0.650 na
+                    variavel QSTEP  - CDU      9    WECC_BESS
+
+ T= 41.0000s TCDU - Variacao de  0.00% + absoluta de  1.000 na
+                    variavel QSTEP  - CDU      9    WECC_BESS
+
+ T= 61.0000s TCDU - Variacao de  0.00% + absoluta de -2.950 na
+                    variavel QSTEP  - CDU      9    WECC_BESS
+
+
+
+ Tempo de CPU da simulacao: 00:00:00.30
+ Media de solucoes de rede CA por passo:  1.81
+ Media de iteracoes modelos CA - rede CA por passo:  1.40
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+  RELATORIO DE VALORES MAXIMOS E MINIMOS NA SIMULACAO (APOS TEMPO INICIAL)     
+
+ X-----------------------------X-----------X-----------X-----------X-----------X
+         VARIAVEL DE SAIDA      VALOR INIC.    TEMPO    VALOR FINAL    TEMPO
+                                VALOR MIN.      (s)     VALOR MAX.      (s)
+ X-----------------------------X-----------X-----------X-----------X-----------X
+
+  PELE        1 10 BARRAINF (1) 0.00000E+00 0.00000E+00 0.14171E-01 0.80000E+02
+                                0.00000E+00 0.00000E+00 0.14171E-01 0.77208E+02
+
+  VOLT        2 BARRA2   (2)    0.10000E+01 0.00000E+00 0.95177E+00 0.80000E+02
+                                0.95177E+00 0.77472E+02 0.10479E+01 0.56332E+02
+
+  FREQ  *     4 BARRAGER (6)    0.00000E+00 0.00000E+00 0.14211E-13 0.80000E+02
+                                -.15314E-02 0.21056E+02 0.35524E-02 0.61052E+02
+
+  FREQ        4 BARRAGER (6)    0.60000E+02 0.00000E+00 0.60000E+02 0.80000E+02
+                                0.59998E+02 0.21056E+02 0.60004E+02 0.61052E+02
+
+  VOLT        4 BARRAGER (6)    0.10000E+01 0.00000E+00 0.92256E+00 0.80000E+02
+                                0.92256E+00 0.77472E+02 0.10770E+01 0.56332E+02
+
+  CDU         9    WECC_BESS    0.00000E+00 0.00000E+00 -.70520E+00 0.80000E+02
+            127 RFFLG0          -.16662E+01 0.61000E+02 0.13965E+01 0.41000E+02
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA  - ANATEM - V10.04.06
+
+ SISTEMA REDUZIDO - REDE FRACA S/ MEDIA                                          
+ TESTE MODELO BESS WECC DE ACORDO COM ORIENTA합ES ONS                            
+
+ DADOS DE PADRAO PARA OPCOES DE EXECUCAO
+
+ X------X------X------X------X------X------X------X------X------X------X
+  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO
+  NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E
+ X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X
+
+  IMPR D FILE D CONT D
+
