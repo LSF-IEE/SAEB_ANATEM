@@ -30,7 +30,7 @@ Para uma base de potência de Sb = 6 MVA, as impedâncias da rede implementadas 
 <br>MODELOS\DMAQ.dat: definição de máquina síncrona equivalente na Barra Infinita (DMAQ).
 <br>REDE\PADRAO_ONS.sav: arquivo histórico com casos convergidos do ANAREDE.
 <br>COMPLEMENTARES\BESS_EVENTOS.dat: arquivo com os eventos que serão simulados (DEVT).
-<br>COMPLEMENTARES\BESS_LOCAIS.dat: arquivo com os locais remotos utilizados na simulação (DLOC) - necessários devido a implementação devido a utilização de topologias de CDU não específicas e também devido à possibilidade de controle de local remoto implementada no módulo REPC_A.
+<br>COMPLEMENTARES\BESS_LOCAIS.dat: arquivo com os locais remotos utilizados na simulação (DLOC) - necessários devido a implementação devido a utilização de topologias de CDU não específicas e também devido à possibilidade de controle de remoto implementada no módulo REPC_A.
 <br>COMPLEMENTARES\BESS_PLT.dat: definição das variáveis que serão plotadas (DPLT).
 ## UTILIZAÇÃO DO MODELO
 <br> O modelo está parametrizado para BESS instalado na Barra #4, e com possibilidade de controle remoto de tensão na Barra #3 e de potência da barra #4 para a barra #3. Para utilizar o modelo em outras redes, deve-se alterar os locais de instalação do BESS e de controle de planta (códigos de execução DLOC, DFNT, ACDU)
