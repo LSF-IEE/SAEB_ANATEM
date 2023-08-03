@@ -1,4 +1,4 @@
-# MODELO DE BESS GENÉRICO NO ANATEM
+# MODELO DINÂMICO DE BESS NO ANATEM
 <br>Modelo Dinâmico de Sistema de Armazenamento de Energia em Baterias (BESS) implementado em ambiente ANATEM com base no modelo de BESS desenvolvido pelo EPRI/WECC [1].
 ## DESCRIÇÃO
 <br>O modelo foi implementado como uma topologia de CDU (código DTDU no ANATEM), sendo desenvolvida uma topologia distinta para cada módulo do modelo do EPRI: REGC_A (Renewable Energy Generator/Converter Model, versão A), REEC_C (Renewable Energy Electrical Controller, versão C), e REPC_A (Renewable Energy Plant Controller, versão A). As topologias são associadas aos controladores por meio do código ACDU. As toplogias e suas respectivas associações são definidas no arquivo BESS_DADOS.dat, na pasta MODELOS.
@@ -39,4 +39,4 @@ Para uma base de potência de Sb = 6 MVA, as impedâncias da rede implementadas 
 ## REFERÊNCIAS
 <br>[1] WECC. “WECC Battery Storage Dynamic Modeling Guideline”, Relatório Técnico, Western Electricity Coordinating Council, 2016. Endereço de acesso:  https://www.wecc.org/Reliability/WECC%20Battery%20Storage%20Guideline%20updates_%20Bo%204-5-17%20SLT%204-7-17%20XX%20SC.docx. Acesso em 21/09/2022.
 <br>[2] P. Torres, G. Figueiredo, M. Almeida, A. Manito, J. C. Almeida, M. Cassares, R. Zilles. MODELO DINÂMICO DE SISTEMAS DE ARMAZENAMENTO DE ENERGIA EM BATERIAS PARA PROVIMENTO DE SERVIÇOS ANCILARES. ELETRÔNICA DE POTÊNCIA (IMPRESSO), v. 28, p. 1-13, 2023. DOI: http://dx.doi.org/10.18618/REP.2023.2.0036
-<br>[3] P. Pouerbik
+<br>[3] P. Pourbeik, J. K. Petter. Modeling and validation of battery energy storage systems using simple generic models for power system stability studies. Cigre Science & Engineering, n. 9, pp. 63-72, October 2017. Disponível em: https://www.researchgate.net/publication/320592464_Modeling_and_validation_of_battery_energy_storage_systems_using_simple_generic_models_for_power_system_stability_studies.
