@@ -1,0 +1,815 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       BESS_DADOS.dat                                                                            |
+( |  FORMATO:       PROGRAMA ANATEM 12.04.00 (FEV/23)                                                         |
+( |                 PROGRAMA ANAREDE 11.07.00 (JAN/23)                                                        |
+( |  VERSÃO:        JUL/2023 R0                                                                               |
+( |  EMISSÃO:       IEE/USP                                                                                   |
+( |  COMPONENTES:   Topologias e associação topologia/controladores de                                        |
+( |                 Sistemas de Armazenamento de Energia em Baterias (BESS)                                   |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe LSF/IEE/USP     -    fotovoltaico@iee.usp.br                                                      |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://github.com/LSF-IEE/SAEB_ANATEM/tree/main                                                  |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DTDU
+(
+( nc ) ( nome cdu )
+    10    REGC_A
+(======================================================================================
+(=====================MÓDULO REGC_A (MODELO DO CONVERSOR)==============================
+(======================================================================================
+(Base de Potência do BESS
+DEFPAR #BMVA  10
+(Flags de Ativação
+DEFPAR #LVPLS 0
+(Parametros
+DEFPAR #IQRMX 99
+DEFPAR #IQRMN -99
+DEFPAR #TG    0.017
+DEFPAR #TFLTR 0.02
+DEFPAR #LVPL1 1.22
+DEFPAR #ZEROX 0.05
+DEFPAR #BRKPT 0.1
+DEFPAR #RRPWR 10
+(Low Voltage Active Current Management
+DEFPAR #LVPT1 0.2
+DEFPAR #LVPT0 0.05
+(High Voltage Reactive Current Management
+DEFPAR #KHV   0.7
+DEFPAR #VOLIM 1.2
+DEFPAR #IOLIM -1.3
+(Locais de Import/Export
+DEFPAR #LIQCD 4
+DEFPAR #LIPCD 3
+(Outros
+DEFPAR #INF   999999999999999.0
+DEFPAR #ZERO  0.0
+DEFPAR #INFN  -999999999999999.0  
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(Controle de Iq
+ 001*IMPORT QTFNT         X001
+ 002 LEDLAG        IQCMD  X002    1.   0.    1.    #TG
+ 003 COMPAR .GE.   QGEN0  X003
+                   ZERO   X003
+ 004 SELET2        IQRMN  X004
+                   INFN   X004
+                   X003   X004
+ 005 SELET2        INF    X005
+                   IQRMX  X005
+                   X003   X005                   
+ 006 RATELM        X002   X006                            X004   X005
+(Controle de Ip
+ 007 IMPORT VOLT          VT
+ 008 IMPORT CDU           IPCMD  #LIPCD
+ 009 LEDLAG        VT     X009   1.    0.    1.    #TFLTR
+ 010 FUNCAO RAMPA  X009   X010   #ZEROX0.    #BRKPT#LVPL1
+ 011 COMPAR .GT.   X009   X011
+                   BRKPT  X011
+ 012 SELET2        X010   X012                              
+                   INF    X012
+                   X011   X012
+ 013 SELET2        INF    X013
+                   X012   X013
+                   LVPLS  X013
+ 014 LEDLAG        IPCMD  X014   1.    0.    1.    #TG    INFN   X013
+ 015 RATELM        X014   X015                            INFN   RRPWR
+(Low Voltage Active Current Management 
+ 016 FUNCAO RAMPA  VT     X016   #LVPT00.    #LVPT11.
+ 017 MULTPL        X015   IP
+                   X016   IP
+(High Voltage Reactive Current Management
+ 018 MULTPL        X006   X018
+                   VT     X018
+ 019 SOMA          VT     X019             
+                  -VOLIM  X019
+ 020 GANHO         X019   X020   #KHV
+ 021 LIMITA        X020   X021                            ZERO   INF
+ 022 COMPAR .GT.   VT     X022
+                   VOLIM  X022
+ 023 SELET2        ZERO   X023              
+                   X021   X023
+                   X022   X023
+ 024 SOMA          X018   X024             
+                  -X023   X024
+ 025 LIMITA        X024   X025                            IOLIM  INF
+ 026 DIVSAO        X025   IQ
+                   VT     IQ
+(Transformada e export
+9980 IMPORT VOLTR         VOLTR
+9981 IMPORT VOLTI         VOLTI
+9982 PHASE         VOLTR  THETA
+                   VOLTI  THETA
+( 027 IMPORT ANGL          THETA
+ 028 FUNCAO COS    THETA  X028
+ 029 FUNCAO SIN    THETA  X029
+ 030 MULTPL        IP     X030
+                   X028   X030
+ 031 MULTPL        IP     X031
+                   X029   X031
+ 032 MULTPL        IQ     X032
+                   X029   X032
+ 033 MULTPL        IQ     X033
+                   X028   X033
+ 034 SOMA          X030   X034
+                  -X032   X034
+ 035 SOMA          X031   X035
+                   X033   X035
+ 036 EXPORT IIRFNT IREAL
+ 037 EXPORT IIIFNT IIMAG
+(Inicializar IQCMD (IQCMD0) e IPCMD (IPCMD0)
+ 038 MULTPL        X034   X038
+                   X029   X038
+ 039 DIVSAO        X038   X039
+                   X028   X039
+ 040 SOMA          X035   X040
+                  -X039   X040
+ 041 FUNCAO X**2   X029   X041
+ 042 FUNCAO X**2   X028   X042
+ 043 SOMA          X041   X043
+                   X042   X043
+ 044 DIVSAO        X043   X044
+                   X028   X044
+ 045 DIVSAO        X040   X045
+                   X044   X045
+ 046 MULTPL        X045   X046
+                   X029   X046
+ 047 SOMA          X034   X047
+                   X046   X047
+ 048 DIVSAO        X047   X048
+                   X028   X048
+ 049 DIVSAO        X045   IQCMD0
+                   VT     IQCMD0
+ 050 DIVSAO        X048   IPCMD0
+                   VT     IPCMD0
+(Entrada das variáveis
+ 051 IMPORT CDU           IQCMD  #LIQCD
+ 052*ENTRAD               ZERO
+ 053*ENTRAD               INF
+ 054*ENTRAD               INFN
+ 055*ENTRAD               IQRMN
+ 056*ENTRAD               IQRMX
+ 057*ENTRAD               BRKPT
+ 058*ENTRAD               VOLIM
+ 059*ENTRAD               LVPLS
+(Saídas
+ 060 SAIDA         IQCMD0
+ 061 SAIDA         IPCMD0
+(Mudança de Base
+ 062*IMPORT PBSIS         SMVA
+ 063*ENTRAD               BMVA
+ 064*DIVSAO        SMVA   KSB
+                   BMVA   KSB
+ 065*DIVSAO        BMVA   KBS
+                   SMVA   KBS
+ 066*SAIDA         KSB
+ 067*SAIDA         KBS
+ 068 MULTPL        X001   QGEN0
+                    KSB   QGEN0
+ 069 MULTPL        X034   IREAL
+                    KBS   IREAL
+ 070 MULTPL        X035   IIMAG  
+                    KBS   IIMAG
+((=====================================================================================
+(===============================DEFINIÇÃO DAS VARIÁVEIS================================
+(======================================================================================
+(----------------------------------------------------------------------
+(      (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+((Variavies Gerais
+DEFVAL        INF    #INF
+DEFVAL        INFN   #INFN
+DEFVAL        ZERO   #ZERO
+DEFVAL        BMVA   #BMVA
+(Flags de Ativação
+DEFVAL        LVPLS  #LVPLS
+(Variáveis de parametrização 
+DEFVAL        IQRMN  #IQRMN
+DEFVAL        IQRMX  #IQRMX
+DEFVAL        BRKPT  #BRKPT
+DEFVAL        RRPWR  #RRPWR
+DEFVAL        VOLIM  #VOLIM
+DEFVAL        IOLIM  #IOLIM
+DEFVAL VAR    IPCMD  IPCMD0
+DEFVAL VAR    IQCMD  IQCMD0
+FIMCDU
+(
+    11    REEC_C
+(======================================================================================
+(================MÓDULO REEC_C (CONTROLADOR DO CONVERSOR)==============================
+(======================================================================================
+(Base de Potência do BESS
+DEFPAR #BMVA  10
+(Flags de Ativação
+DEFPAR #PFFLG 0
+DEFPAR #PQFLG 0
+DEFPAR #QFLG  1
+DEFPAR #VFLG  1
+DEFPAR #RLFLG 0
+(Freeze State Control
+DEFPAR #VDIP  -99
+DEFPAR #VUP   99
+(Controle Ip
+DEFPAR #DPMX  99
+DEFPAR #DPMN  -99
+DEFPAR #PMX   1.0
+DEFPAR #PMN   -0.667
+DEFPAR #TPORD 0.017
+DEFPAR #TSOC  999
+DEFPAR #SOCMX 0.8
+DEFPAR #SOCMN 0.2
+(Controle Iq
+DEFPAR #TRV   0.01
+DEFPAR #DBD1  -0.05
+DEFPAR #DBD2  0.05
+DEFPAR #KQV   0.0
+DEFPAR #IQH1  0.75
+DEFPAR #IQL1  -0.75
+DEFPAR #TP    0.05
+DEFPAR #QMX   0.75
+DEFPAR #QMN   -0.75
+DEFPAR #VMX   1.1
+DEFPAR #VMN   0.9
+DEFPAR #KQP   1.0
+DEFPAR #KQI   1.0
+DEFPAR #KVP   1.0
+DEFPAR #KVI   1.0
+DEFPAR #TIQ   0.017
+(Current Limit Logic
+DEFPAR #IMAX  1.11
+(VDL1 Curve
+DEFPAR #VQ1   0.0
+DEFPAR #IQ1   0.75
+DEFPAR #VQ2   0.2
+DEFPAR #IQ2   0.750001
+DEFPAR #VQ3   0.5
+DEFPAR #IQ3   0.750002
+DEFPAR #VQ4   1.0
+DEFPAR #IQ4   0.750003
+(VDL2 Curve
+DEFPAR #VP1   0.2
+DEFPAR #IP1   1.11
+DEFPAR #VP2   0.5
+DEFPAR #IP2   1.110001
+DEFPAR #VP3   0.75
+DEFPAR #IP3   1.110002
+DEFPAR #VP4   1.0
+DEFPAR #IP4   1.110003
+(Locais
+DEFPAR #LIPC0 6
+DEFPAR #LIQC0 5
+DEFPAR #LFNT  7
+DEFPAR #BESST 12
+DEFPAR #LPREF 10
+DEFPAR #LQEXT 11
+(User Defined Inputs and Other
+DEFPAR #VREF0 1
+DEFPAR #SOC0  0.5
+DEFPAR #VTMIN 0.8
+DEFPAR #PAUX  0.0
+DEFPAR #INF   999999999999999.0
+DEFPAR #ZERO  0.0
+DEFPAR #DZERO 0.0000000000001
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(Valores de entrada
+ 001 IMPORT VOLT          VT     #BESST
+ 002 IMPORT PTFNT         X002   #LFNT
+ 003 IMPORT QTFNT         X003   #LFNT
+ 004 ENTRAD               VREF0
+ 005*ENTRAD               PAUX
+ 006*ENTRAD               IMAX
+ 007*ENTRAD               PFFLG
+ 008*ENTRAD               PQFLG
+ 009*ENTRAD               QFLG
+ 013*ENTRAD               ZERO
+ 015*ENTRAD               VDIP
+ 016*ENTRAD               VUP
+ 017*ENTRAD               SOCMN
+ 018*ENTRAD               SOCMX
+ 019*ENTRAD               SOC0
+ 010*ENTRAD               VFLG
+(Controle de Iqinj
+ 020 LEDLAG        VT     X20    1.    0.    1.    #TRV
+ 021 SOMA          VREF0  X21
+                  -X20    X21
+ 022 FUNCAO DEADB2 X21    X22    #DBD1 1.    #DBD2 1.
+ 023 MULTPL        X21    X23
+                   X22    X23
+ 024 GANHO         X23    X24    #KQV
+ 025 LIMITA        X24    X25                             IQL1   IQH1
+(Referência para o controle de Iqcmd 
+ 026 LEDLAG        PE     X26    1.    0.    1.    #TP
+ 027 LIMITA        PE     X27                             DZERO  INF
+ 028 DIVSAO        QGEN   X28
+                   X27    X28
+ 029 MULTPL        X28    X29
+                   X26    X29
+ 030 SELET2        X095   X30
+                   X29    X30
+                   PFFLG  X30
+(Determinar Voltage_dip
+ 031 COMPAR .LT.   VT     X31
+                   VDIP   X31
+ 032 COMPAR .GT.   VT     X32
+                   VUP    X32
+ 033 LOGIC  .OR.   X31    X33
+                   X32    X33
+ 034 LOGIC  .NOT.  X33    X34                               
+(Cálculo de Iqcmd
+ 035 LIMITA        X30    X35                             QMN    QMX   
+ 036 SOMA          X35    X36
+                  -QGEN   X36
+ 037 ORD(1)        X36    X37    #KQI  #KQP  0.    1.     VMN    VMX
+ 038 T/HOLD        X37    X38
+                   X34    X38                  
+ 039 SELET2        X30    X39
+                   X38    X39
+                   VFLG   X39
+ 040 LIMITA        X39    X40                             VMN    VMX
+ 041 SOMA          X40    X41
+                  -X20    X41
+ 042 ORD(1)        X41    X42    #KVI  #KVP  0.    1.     IQMN   IQMX      
+ 043 T/HOLD        X42    X43
+                   X34    X43
+ 044 LIMITA        X20    X44                             VTMIN  INF
+ 045 DIVSAO        X30    X45
+                   X44    X45
+ 046 LEDLAG        X45    X46    1.    0.    1.    #TIQ
+ 047 T/HOLD        X46    X47
+                   X34    X47
+ 048 SELET2        X47    X48
+                   X43    X48
+                   QFLG   X48
+ 049 SOMA          X25    X49                                        
+                   X48    X49
+ 050 LIMITA        X49    X50                             IQMN   IQMX
+(Calculo do Ipcmd
+ 051 RATELM        PREF   X51                             DPMN   DPMX
+ 052 LEDLAG        X51    X52    1.    0.    1.    #TPORD PMN    PMX
+ 053 T/HOLD        X52    X53
+                   X34    X53
+ 054 DIVSAO        X53    X54      
+                   X44    X54
+ 055 SOMA          X54    X55
+                   PAUX   X55
+ 056 LIMITA        X55    IPCMD                           IPMN   IPMX
+(Current Limit Logic and Limitação de Ipmin e Ipmax em função do SoC 
+ 057 PROINT        PE     X57    1.    0.    #TSOC        IQMN   IQMX
+ 058 SOMA          SOC0   X58
+                  -X57    X58
+ 059 LIMITA        X58    SOC                             SOCMN  SOCMX
+ 060 COMPAR .GE.   SOC    X60
+                   SOCMX  X60
+ 061 COMPAR .LE.   SOC    X61
+                   SOCMN  X61
+ 062 FUNCAO PONTOS X20    X62    #VQ1  #IQ1
+                                 #VQ2  #IQ2
+                                 #VQ3  #IQ3
+                                 #VQ4  #IQ4
+ 063 FUNCAO PONTOS X20    X63    #VP1  #IP1
+                                 #VP2  #IP2
+                                 #VP3  #IP3
+                                 #VP4  #IP4
+ 064 FUNCAO X**2   IMAX   X64
+ 065 FUNCAO X**2   IPCMD  X65
+ 066 FUNCAO X**2   IQCMD  X66
+ 067 SOMA          X64    X67
+                  -X66    X67
+ 068 SOMA          X64    X68
+                  -X65    X68
+ 069 FUNCAO SQRT   X67    X69
+ 070 FUNCAO SQRT   X68    X70
+ 071 MIN           X62    X71
+                   IMAX   X71   
+ 072 MIN           X63    X72
+                   X69    X72
+ 073 MIN           X62    X73
+                   X70    X73
+ 074 MIN           X63    X74
+                   IMAX   X74
+ 075 SELET2        X71    IQMX  
+                   X73    IQMX
+                   PQFLG  IQMX
+ 076 SELET2        X72    X76  
+                   X74    X76
+                   PQFLG  X76
+ 077 FUNCAO MENOS  IQMX   IQMN
+ 078 FUNCAO MENOS  X76    X78
+ 079 SELET2        X78    IPMN
+                   ZERO   IPMN
+                   X60    IPMN
+ 080 SELET2        X76    IPMX       
+                   ZERO   IPMX
+                   X61    IPMX
+(Saídas
+ 081 EXPORT  CDU   IPCMD       
+ 082 EXPORT  CDU   IQCMD
+(Entrada das variáveis
+ 083 IMPORT CDU           PREF   #LPREF
+ 084 IMPORT CDU           QEXT   #LQEXT
+(Mudança de Base
+ 085*IMPORT PBSIS         SMVA
+ 086*ENTRAD               BMVA
+ 087*DIVSAO        SMVA   KSB
+                   BMVA   KSB
+ 088*DIVSAO        BMVA   KBS
+                   SMVA   KBS
+ 089*SAIDA         KSB
+ 090*SAIDA         KBS
+ 091 MULTPL        X002   PE     
+                   KSB    PE
+ 092 MULTPL        X003   QGEN   
+                   KSB    QGEN
+(Seleção Controle Local ou de Planta
+ 093 ENTRAD               QLOC
+ 094 ENTRAD               RLFLG
+ 095 SELET2        QEXT   X095
+                   QLOC   X095
+                   RLFLG  X095         
+(Mudança de Sinal IQCMD
+ 096 GANHO         X50    IQCMD  -1.0
+(
+(======================================================================================
+(===============================DEFINIÇÃO DAS VARIÁVEIS================================
+(======================================================================================
+(----------------------------------------------------------------------
+(      (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+(Variáveis Gerais
+DEFVAL        INF    #INF
+DEFVAL        ZERO   #ZERO
+DEFVAL        DZERO  #DZERO
+DEFVAL        BMVA   #BMVA
+(Flags de controle
+DEFVAl        PFFLG  #PFFLG
+DEFVAl        PQFLG  #PQFLG
+DEFVAl        QFLG   #QFLG
+DEFVAl        VFLG   #VFLG
+DEFVAL        RLFLG  #RLFLG
+(Controle de Ipcmd e Iqcmd
+DEFVAL        IQH1   #IQH1
+DEFVAL        IQL1   #IQL1
+DEFVAL        VDIP   #VDIP
+DEFVAL        VUP    #VUP
+DEFVAL        DPMN   #DPMN
+DEFVAL        DPMX   #DPMX
+DEFVAL        PMN    #PMN
+DEFVAL        PMX    #PMX
+DEFVAL        PAUX   #PAUX
+DEFVAL        VTMIN  #VTMIN  
+DEFVAL        SOC0   #SOC0
+DEFVAL        SOCMN  #SOCMN
+DEFVAL        SOCMX  #SOCMX
+DEFVAL        IMAX   #IMAX
+DEFVAL        VREF0  #VREF0
+DEFVAL        QMN    #QMN
+DEFVAL        QMX    #QMX
+DEFVAL        VMN    #VMN
+DEFVAL        VMX    #VMX
+(Inicialização de Ipcmd e Iqcmd
+DEFVAL CDU    IPCMD  #LIPC0
+DEFVAL CDU    IQCMD  #LIQC0
+(Inicialização SOC
+DEFVAL        SOC    #SOC0
+(Inicializar Qext e Qloc
+DEFVAL VAR    QEXT   QGEN
+DEFVAL VAR    QLOC   QGEN
+(Inicializar as entradas das seletoras
+(Vflag
+DEFVAL        X38    1.0
+(Qflag
+DEFVAL VAR    X43    X48
+DEFVAL VAR    X47    X48
+(
+FIMCDU
+(
+    12    REPC_A
+(======================================================================================
+(======================MÓDULO REPC_A (CONTROLE DA PLANTA)==============================
+(======================================================================================
+(Base de Potência do BESS
+DEFPAR #BMVA  10
+(Flags de ativação
+DEFPAR #FQFLG 1
+DEFPAR #RFFLG 0
+DEFPAR #VPFLG 0
+(Locais de Medicao
+DEFPAR #NBRMT 1                 (Barra Remota onde será medida a tensão de controle
+DEFPAR #NBRMU 2                 (Circuito onde será medida a potência de controle
+(Active Power Control
+DEFPAR #TP    0.25
+DEFPAR #FDBD1 -0.00083
+DEFPAR #FDBD2 0.00083
+DEFPAR #DDN   126
+DEFPAR #DUP   126
+DEFPAR #FEMX  99
+DEFPAR #FEMN  -99
+DEFPAR #PMX   1.0
+DEFPAR #PMN   -0.667
+DEFPAR #KPG   1.0
+DEFPAR #KIG   1.0
+DEFPAR #TLAG  0.8
+(Reactive Power Control
+DEFPAR #TFLT  0.02
+DEFPAR #KC    0.0
+DEFPAR #EMX   0.1
+DEFPAR #EMN   -0.1
+DEFPAR #QMX   0.75
+DEFPAR #QMN   -0.75
+DEFPAR #KP    1.0
+DEFPAR #KI    4.0
+DEFPAR #TFT   0.01
+DEFPAR #TFV   0.2
+DEFPAR #QDBD1 0.0
+DEFPAR #QDBD2 0.0
+DEFPAR #VFRZ  0.0
+(Locais de Import/Export
+DEFPAR #LPREF 8
+DEFPAR #LQEXT 9
+(Outros
+DEFPAR #INF   999999999999999.0
+DEFPAR #ZERO  0.0
+DEFPAR #INFN  -999999999999999.0 
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(Controle de Pref
+(Valores de entrada
+ 001 IMPORT FLXA          X001   #NBRMU
+ 002 IMPORT FREQ          FREQ   #NBRMT
+ 003 IMPORT ILINR         X003   #NBRMU
+ 004 IMPORT ILINI         X004   #NBRMU
+ 005 IMPORT VOLT          VREG   #NBRMT
+ 006 IMPORT VOLTR         VREGR  #NBRMT 
+ 007 IMPORT VOLTI         VREGI  #NBRMT 
+ 008 IMPORT FLXR          X008   #NBRMU
+ 009 IMPORT RCIR          X009   #NBRMU
+ 010 IMPORT XCIR          X010   #NBRMU
+ 011 ENTRAD               PLTPRF
+ 012 ENTRAD               FRQRF
+ 013 ENTRAD               VREF
+ 014 ENTRAD               QREF
+ 015 ENTRAD               FQFLG
+ 016 ENTRAD               VPFLG
+ 017 ENTRAD               RFFLG
+ 018 ENTRAD               VFRZ
+(LPF para PBRCH   
+ 019 LEDLAG        PBRCH  X19    1.    0.    1.    #TP
+(Deadband para FREQ
+ 020 SOMA         -FREQ   X20
+                   FRQRF  X20   
+ 021 FUNCAO DEADB2 X20    X21    #FDBD11.    #FDBD21.
+ 022 MULTPL        X20    X22
+                   X21    X22
+(Ganho de subfrequencia e sobrefrequencia
+ 023 GANHO         X22    X23    #DDN
+ 024 GANHO         X22    X24    #DUP
+ 025 LIMITA        X23    X25                             INFN   ZERO
+ 026 LIMITA        X24    X26                             ZERO   INF
+ 027 SOMA          X25    X27
+                   X26    X27
+(Somatório das contribuições
+ 028 SOMA          PLTPRF X28
+                   X27    X28
+                  -X19    X28
+(Calculo de Pref
+ 029 LIMITA        X28    X29                             FEMN   FEMX
+ 030 ORD(1)        X29    X30    #KIG  #KPG  0     1      PMN    PMX
+ 031 LEDLAG        X30    X31    1.    0.    1.    #TLAG
+ 032 SELET2        PLTPRF PREF
+                   X31    PREF
+                   FQFLG  PREF
+(  
+(Controle de Qext
+(Calculo da Compensação por queda de tensão
+ 033 MULTPL        IBRCHI X33
+                   XC     X33
+ 034 MULTPL        IBRCHR X34
+                   RC     X34
+ 035 MULTPL        IBRCHR X35
+                   XC     X35
+ 036 MULTPL        IBRCHI X36
+                   RC     X36
+ 037 SOMA          VREGR  X37
+                   X33    X37
+                  -X34    X37
+ 038 SOMA          VREGI  X38
+                  -X35    X38
+                  -X36    X38
+ 039 FUNCAO X**2   X37    X39                 
+ 040 FUNCAO X**2   X38    X40
+ 041 SOMA          X39    X41
+                   X40    X41
+ 042 FUNCAO SQRT   X41    X42
+(Calculo sem compensação
+ 043 GANHO         QBRCH  X43    #KC
+ 044 SOMA          VREG   X44
+                   X43    X44
+(Controle de Tensao -> RFFLG = 1
+ 045 SELET2        X44    X45
+                   X42    X45
+                   VPFLG  X45
+ 046 LEDLAG        X45    X46    1.    0.    1.    #TFLT
+ 047 SOMA          VREF   X47
+                  -X46    X47
+(Controle de Q      -> RFFLG = 0  
+ 048 LEDLAG        QBRCH  X48    1.    0.    1.    #TFLT
+ 049 SOMA          QREF   X49
+                  -X48    X49
+(Calculo de Qext
+ 050 SELET2        X49    X50
+                   X47    X50
+                   RFFLG  X50
+ 051 FUNCAO DEADB2 X50    X51    #QDBD11.    #QDBD21.
+ 052 MULTPL        X50    X52
+                   X51    X52
+ 053 LIMITA        X52    X53                             EMN    EMX                         
+ 054 ORD(1)        X53    X54    #KI   #KP   0.    1.     QMN    QMX
+ 055 COMPAR .GE.   VREG   X55
+                   VFRZ   X55
+ 056 T/HOLD        X54    X56
+                   X55    X56
+ 057 LEDLAG        X56    QEXT   1.    #TFT  1.    #TFV
+(Saídas
+ 058 EXPORT  CDU   PREF       
+ 059 EXPORT  CDU   QEXT
+ 061 SAIDA         PREF
+(Mudança de Base
+ 062*IMPORT PBSIS         SMVA
+ 063*ENTRAD               BMVA
+ 064*DIVSAO        SMVA   KSB
+                   BMVA   KSB
+ 065*DIVSAO        BMVA   KBS
+                   SMVA   KBS
+ 066*SAIDA         KSB
+ 067*SAIDA         KBS
+ 068 MULTPL        X001   PBRCH
+                   KSB    PBRCH
+ 069 MULTPL        X003   IBRCHR 
+                   KSB    IBRCHR
+ 070 MULTPL        X004   IBRCHI 
+                   KSB    IBRCHI
+ 071 MULTPL        X008   QBRCH  
+                   KSB    QBRCH
+ 072 MULTPL        X009   RC     
+                   KSB    RC
+ 073 MULTPL        X010   XC     
+                   KSB    XC
+(======================================================================================
+(===============================DEFINIÇÃO DAS VARIÁVEIS================================
+(======================================================================================
+(----------------------------------------------------------------------
+(      (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+(Variáveis Gerais
+DEFVAL        INF    #INF
+DEFVAL        INFN   #INFN
+DEFVAL        ZERO   #ZERO
+DEFVAL        BMVA   #BMVA
+(Flags
+DEFVAl        FQFLG  #FQFLG
+DEFVAl        RFFLG  #RFFLG
+DEFVAl        VPFLG  #VPFLG
+(Controle Q-V
+DEFVAL        VFRZ   #VFRZ        Tensão Mínima para Regulação de Qext [pu]
+DEFVAL        EMN    #EMN
+DEFVAL        EMX    #EMX
+DEFVAL        QMN    #QMN
+DEFVAL        QMX    #QMX
+(Controle P-f
+DEFVAL        FEMN   #FEMN
+DEFVAL        FEMX   #FEMX
+DEFVAL        PMN    #PMN
+DEFVAL        PMX    #PMX
+(Inicialização de PREF e QEYT
+DEFVAL CDU    PREF   #LPREF
+DEFVAL CDU    QEXT   #LQEXT
+(Inicializar Fref, Qref, Vref
+DEFVAL VAR    FRQRF  FREQ
+DEFVAL VAR    VREF   VREG
+DEFVAL VAR    QREF   QBRCH
+(Inicializar as entradas da seletora FQFLG
+DEFVAL VAR    PLTPRF PREF
+DEFVAL VAR    X31    PREF
+(
+FIMCDU
+(                   
+999999
+(
+ACDU
+(
+(ncdu) (ntop) ( nome cdu )
+    20     10 BESS_REGC
+(
+(-----------------------------------------------------------------------
+( LOW-VOLTAGE POWER LOGIC SWITCH
+( #LVPLS = 0, LÓGICA DE REDUÇÃO DE POTÊNCIA ATIVA POR SUBTENSÃO DESABILITADA
+( #LVPLS = 1, LÓGICA DE REDUÇÃO DE POTÊNCIA ATIVA POR SUBTENSÃO HABILITADA
+(
+DEFPAR #BMVA                  6   (BASE DE POTÊNCIA DO BESS, EM MVA (POTÊNCIA NOMINAL) 
+DEFPAR #LVPLS                 0   (LOW-VOLTAGE POWER LOGIC SWITCH
+DEFPAR #LIQCD                 4   (Local do IQCMD no DLOC (Se alterar aqui, atualizar o DLOC)
+DEFPAR #LIPCD                 3   (Local do IPCMD no DLOC (Se alterar aqui, atualizar o DLOC)
+(-----------------------------------------------------------------------
+FIMCDU
+(
+    21     11 BESS_REEC
+(
+(-----------------------------------------------------------------------
+( MODO DE CONTROLE DE POTENCIA REATIVA
+( 1) Fator de Potência constante no ponto de conexão do BESS
+(    #PFFLG = 1
+(    #VFLG  = X
+(    #QFLG  = 0
+(    #RLFLG = 1
+( 2) Potência Reativa constante no ponto de conexão do BESS
+(    #PFFLG = 0
+(    #VFLG  = X
+(    #QFLG  = 0
+(    #RLFLG = 1
+( 3) Tensão constante no ponto de conexão do BESS
+(    #PFFLG = 0
+(    #VFLG  = 0
+(    #QFLG  = 1
+(    #RLFLG = 1
+( 4) Controle coordenado V/Q no ponto de conexão do BESS
+(    #PFFLG = 0
+(    #VFLG  = 1
+(    #QFLG  = 1
+(    #RLFLG = 1
+( 5) Controle de potência reativa a nível de planta
+(    #PFFLG = 0
+(    #VFLG  = X
+(    #QFLG  = 0
+(    #RLFLG = 0
+(    #RFFLG = 0 -> Parâmetro do módulo REPC
+( 6) Controle de tensão a nível de planta
+(    #PFFLG = 0
+(    #VFLG  = X
+(    #QFLG  = 0
+(    #RLFLG = 0
+(    #RFFLG = 1 -> Parâmetro do módulo REPC
+( 7) Controle de potência reativa a nível de planta + Controle coordenado V/Q no ponto de conexão do BESS
+(    #PFFLG = 0
+(    #VFLG  = 1
+(    #QFLG  = 1
+(    #RLFLG = 0
+(    #RFFLG = 0 -> Parâmetro do módulo REPC
+( 8) Controle de tensão a nível de planta + Controle coordenado V/Q no ponto de conexão do BESS 
+(    #PFFLG = 0
+(    #VFLG  = 1
+(    #QFLG  = 1
+(    #RLFLG = 0
+(    #RFFLG = 1 -> Parâmetro do módulo REPC
+(
+( PRIORIDADE DE CONTORLE NA LIMITAÇÃO DE CORRENTE
+( #PQFLG = 0, Prioridade de controle de potência reativa
+( #PQFLG = 1, Prioridade de controle de potência ativa
+(
+DEFPAR #BMVA  6                 BASE DE POTÊNCIA DO BESS, EM MVA (POTÊNCIA NOMINAL)
+DEFPAR #PFFLG 0
+DEFPAR #VFLG  0
+DEFPAR #QFLG  0
+DEFPAR #RLFLG 0
+DEFPAR #PQFLG 1  
+DEFPAR #LFNT  7                 Local da Fonte Shunt no DLOC (Se alterar aqui, atualizar o DLOC)    
+DEFPAR #LIPC0 6                 Local IPCMD0 no DLOC (Se alterar aqui, atualizar o DLOC) 
+DEFPAR #LIQC0 5                 Local IQCMD0 no DLOC (Se alterar aqui, atualizar o DLOC) 
+DEFPAR #BESST 12                Local da barra de controle de tensao no DLOC (Se alterar aqui, atualizar o DLOC) 
+DEFPAR #LPREF 10                Local do PREF no DLOC (Se alterar aqui, atualizar o DLOC) 
+DEFPAR #LQEXT 11                Local do QEXT no DLOC (Se alterar aqui, atualizar o DLOC)
+ 
+(-----------------------------------------------------------------------
+FIMCDU
+(
+    22     12 BESS_REPC
+(
+(-----------------------------------------------------------------------
+( MODO DE CONTROLE DE POTÊNCIA ATIVA
+( #FQFLG = 0, Controle desabilitado, Pref constante (malha aberta)
+( #FQFLG = 1, Controle habilitado, Droop P-f e Pref ajustado conforme um valor de referência PPLTRF
+(
+( MODO DE CONTROLE DE POTÊNCIA REATIVA 
+( #RFFLG -> Ver descrição no ACDU do módulo REEC
+( #VPFLG = 0, sem compensação por queda de tensão no circuito
+( #VPFLG = 1, com compensação por queda de tensão no circuito
+(
+DEFPAR #BMVA  6                 (BASE DE POTÊNCIA DO BESS, EM MVA (POTÊNCIA NOMINAL)
+DEFPAR #FQFLG 1
+DEFPAR #RFFLG 0
+DEFPAR #VPFLG 0
+(Locais de Medicao
+DEFPAR #NBRMT 1                 (Barra Remota onde será medida a tensão de controle no DLOC (Se alterar aqui, atualizar o DLOC) 
+DEFPAR #NBRMU 2                 (Circuito onde será medida a potência de controle no DLOC (Se alterar aqui, atualizar o DLOC) 
+DEFPAR #LPREF 8                 (Local do PREF no DLOC (Se alterar aqui, atualizar o DLOC) 
+DEFPAR #LQEXT 9                 (Local do QEXT no DLOC (Se alterar aqui, atualizar o DLOC) 
+(-----------------------------------------------------------------------
+FIMCDU
+(
+999999
+Fim

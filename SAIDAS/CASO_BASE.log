@@ -1,0 +1,16 @@
+
+ RELATÓRIO DE MENSAGENS DA SIMULAÇÃO - TEMPO =     30.0  SEG
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=    30.0s *******
+
+ T=  1.0000s TCDU - Variação de  0.00% + absoluta de  0.500 na
+                    variável PLTPRF - CDU     22 BESS_REPC   
+
+ T=  5.0000s TCDU - Variação de  0.00% + absoluta de  0.050 na
+                    variável QREF   - CDU     22 BESS_REPC   
+
+ T= 10.0000s APCB - Aplicou curto-circuito na barra     2 B2          
+
+ T= 10.2000s RMCB - Removeu curto-circuito da barra     2 B2          
+

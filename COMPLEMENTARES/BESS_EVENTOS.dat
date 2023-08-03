@@ -1,0 +1,26 @@
+(===============================================================================
+( DADOS DE EVENTOS
+(===============================================================================
+( APCB -> aplicacao de curto-circuito em barra CA
+( RMCB -> remocao de curto-circuito em barra CA
+( ABCI -> abertura de circuito CA
+( MDSH -> modificacao de shunt de barra
+( MDLD -> modificacao de modulo da carga mantendo fator de potencia
+( TCDU -> modificação em variável de entrada de CDU
+(
+DEVT
+( CASO BASE
+(Tp) ( Tempo)( El )( Pa)Nc( Ex) ( % ) (ABS ) Gr Und         (Bl)P ( Rc ) ( Xc ) ( Bc ) (Defas)
+(ALTERAÇÕES NOS SETPOINTS A NÍVEL DE PLANTA
+(1 - SETPOINT DE POTÊNCIA ATIVA
+TCDU     1.0     22                      .5                 011
+(2 - SETPOINT DE POTÊNICA REATIVA
+TCDU     5.0     22                      .05                014
+(3 - SETPOINT DE TENSÃO
+(TCDU     10.0    22                   -0.1                   013
+(------------------------------------------------------------------------------------------------
+(FALTAS NA REDE
+APCB     10.0     2                                                       0.25
+RMCB     10.2     2
+(
+999999

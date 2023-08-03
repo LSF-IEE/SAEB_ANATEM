@@ -1,0 +1,37 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       BESS.dat                                                                                  |
+( |  FORMATO:       PROGRAMA ANATEM 12.04.00 (FEV/23)                                                         |
+( |                 PROGRAMA ANAREDE 11.07.00 (JAN/23)                                                        |
+( |  VERSAO:        JUL/2023 R0                                                                               |
+( |  EMISSAO:       IEE/USP                                                                                   |
+( |  COMPONENTES:   Arquivo para associação dos BESS em oepração e seus controladores não específicos         |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe LSF/IEE/USP     -   fotovoltaico@iee.usp.br                                                       |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://github.com/LSF-IEE/SAEB_ANATEM/tree/main                                                  |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( *******************
+( BESS EM OPERAÇÃO
+( *******************
+(
+DFNT
+(Mc corresponde ao ncdu do módulo REGC indicado no ACDU (Arquivo BESS_DADOS.dat)
+( Nb)   Gr T (FP%) (FQ%)     ( Mc )u (R ou G) (X ou B)
+    4   10 I  100.  100.         20u                         (BESS Genérico
+999999
+(
+( ***************************************************
+( CONTROLADORES NÃO ESPECÍFICOS - CONTROLE DE PARQUE 
+( ***************************************************
+(
+DCNE
+(Mc corresponde ao ncdu dos módulos REEC e REPC indicado no ACDU (Arquivo BESS_DADOS.dat) 
+(Nc)   ( Mc )u
+  01       21u   REEC_C                                      
+  02       22u   REPC_A
+999999

@@ -1,0 +1,58 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       BESS_PLT.dat                                                                              |
+( |  FORMATO:       PROGRAMA ANATEM 12.04.00 (FEV/23)                                                         |
+( |                 PROGRAMA ANAREDE 11.07.00 (JAN/23)                                                        |
+( |  VERSAO:        JUL/2023 R0                                                                               |
+( |  EMISSAO:       IEE/USP                                                                                   |
+( |  COMPONENTES:   Arquivo para plotagem de todos os BESS presentes na simulação                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( | Equipe LSF/IEE/USP     -   fotovoltaico@iee.usp.br                                                        |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://github.com/LSF-IEE/SAEB_ANATEM/tree/main                                                  |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DPLT IERR
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+(Variaveis do BESS
+PTFNT     004          10                         P_BESS
+QTFNT     004          10                         Q_BESS
+ITMFNT    004          10                         I_BESS
+ITIFNT    004          10                         Ii_BESS
+ITRFNT    004          10                         Ir_BESS
+VOLT      004                                     V_BESS
+(Variaveis na Barra em Falta
+VOLT      002                                     V_FAULT
+(Variaveis da Planta
+VOLT      003                                     V_Planta
+FLXA      004   003                               P_Planta
+FLXR      004   003                               Q_Planta
+(Variáveis de CDU
+CDU       021                            IQMX
+CDU       021                            IQMN 
+CDU       020                             008     IPCMD_REGC
+CDU       020                             051     IQCMD_REGC
+CDU       020                              IP     IP_REGC
+CDU       020                              IQ     IQ_REGC
+CDU       020                             034     IREAL_REGC
+CDU       020                             035     IIMAG_REGC
+CDU       021                            PREF     PREF_REEC
+CDU       021                            QEXT     QEXT_REEC
+CDU       021                             056     IPCMD_REEC
+CDU       021                             050     IQCMD_REEC
+CDU       021                             SOC     SOC_REEC
+CDU       021                             X53     PORD_REEC
+CDU       021                             X25     IQINJ_REEC
+CDU       022                            PREF     PREF_REPC
+CDU       022                            QEXT     QEXT_REPC
+CDU       022                            FREQ     FREQ_REPC
+CDU       022                             001     PBRCH_REPC
+CDU       022                             011     PLTPRF_REPC
+CDU       022                            VREG     VREG_REPC
+CDU       022                             008     QBRCH_REPC
+999999
+(
+Fim

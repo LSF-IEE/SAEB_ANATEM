@@ -1,0 +1,36 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       BESS_LOCAIS.dat                                                                           |
+( |  FORMATO:       PROGRAMA ANATEM 12.04.00 (FEV/23)                                                         |
+( |                 PROGRAMA ANAREDE 11.07.00 (JAN/23)                                                        |
+( |  VERSAO:        JUL/2023 R0                                                                               |
+( |  EMISSAO:       IEE/USP                                                                                   |
+( |  COMPONENTES:   Arquivo com todos os locais remotos utilizados na simulação do BESS                       |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |   Equipe LSF/IEE/USP     -   fotovoltaico@iee.usp.br                                                      |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DLOC
+(Obs: se o local (Lc) for alterado aqui, alterar o respectivo parâmetro do ACDU no arquivo BESS_DADOS.dat
+(Obs: nos locais do tipo CDU, E1 indica o ncdu correspondente do módulo no ACDU no arquivo BESS_DADOS.dat  
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+   1   BARRAC     3                  (#NBRMT - Barra remota
+   2   CIRCAC     4    3 1           (#NBRMU - Circuito remoto
+   7   FNT        4            10    (#LFNT
+   3   CDU       21              81  (#LIPCD
+   4   CDU       21              82  (#LIQCD
+   5   CDU       20              49  (#LIQCD
+   6   CDU       20              50  (#LIPCD                                                
+   8   CDU       21              83  (#LPREF
+   9   CDU       21              84  (#LQEXT
+  10   CDU       22              58  (#LPREF
+  11   CDU       22              59  (#LQEXT
+  12   BARRAC     4                  (#BESST - Barra local de conexão do BESS
+999999
+(
+Fim

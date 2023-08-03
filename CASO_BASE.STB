@@ -1,0 +1,61 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       CASO_BASE.stb                                                                             |
+( |  FORMATO:       PROGRAMA ANATEM 12.04.00 (FEV/23)                                                         |
+( |                 PROGRAMA ANAREDE 11.07.00 (JAN/23)                                                        |
+( |  VERSAO:        JUL/2023 R0                                                                               |
+( |  EMISSAO:       IEE/USP                                                                                   |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe LSF/IEE/USP     -    fotovoltaico@iee.usp.br                                                      |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://github.com/LSF-IEE/SAEB_ANATEM/tree/main                                                  |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(===============================================================================
+( TITULO DO CASO
+(===============================================================================
+TITU
+TESTE MODELO BESS WECC EM REDE TESTE DE 4 BARRAS
+(
+(===============================================================================
+( ASSOCIACAO DE ARQUIVOS
+(===============================================================================
+DARQ
+(
+( ARQUIVOS DE SAIDA DA SIMULACAO
+(Tipo) (C) ( Nome do Arquivo
+   OUT     .\SAIDAS\CASO_BASE.out
+   LOG     .\SAIDAS\CASO_BASE.log     
+   PLT     .\SAIDAS\CASO_BASE.plt  
+(
+( ARQUIVO HISTORICO/REGISTRO DO CASO DE FLUXO DE POTENCIA
+(Tipo) (C) ( Nome do Arquivo
+   SAV   1 .\REDE\PADRAO_ONS.sav
+(
+( ARQUIVOS DE MODELOS (Obs: manter a ordem de chamada)
+(Tipo) (C) ( Nome do Arquivo
+   DAT     .\MODELOS\BESS_DADOS.dat 
+   DAT     .\MODELOS\BESS.dat 
+   DAT     .\COMPLEMENTARES\BESS_LOCAIS.dat
+   BLT     .\MODELOS\SIS14B.blt
+   DAT     .\MODELOS\DMAQ.dat
+(
+( ARQUIVOS DE EVENTOS
+(Tipo) (C) ( Nome do Arquivo
+   DAT     .\COMPLEMENTARES\BESS_EVENTOS.dat
+(  
+( ARQUIVOS DE PLOTAGEM
+(Tipo) (C) ( Nome do Arquivo
+   DAT     .\COMPLEMENTARES\BESS_PLT.dat
+(
+999999
+(
+DSIM
+( Tmax ) (Stp) ( P ) ( I ) ( F )
+    30.0  .001    11
+EXSI DLCC DLCA OTMX ANWT ESTC ESTS
+(
+FIM
